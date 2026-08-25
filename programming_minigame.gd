@@ -4,7 +4,6 @@ extends Control
 
 var level_data: ProgrammingTaskData
 
-
 const PORT_TYPES = {
 	"blue": {
 		"type": 0,
@@ -33,7 +32,7 @@ func _ready():
 	graph.connection_request.connect(_on_connection_request)
 	graph.disconnection_request.connect(_on_disconnection_request)
 
-	# Only allow matching port types/colors.
+	# Only same colors can connect.
 	for port_data in PORT_TYPES.values():
 		var type = port_data["type"]
 		graph.add_valid_connection_type(type, type)
@@ -63,24 +62,25 @@ func create_programming_node(data: ProgrammingNodeData):
 	node.title = data.title
 	node.position_offset = data.start_position
 
+	# Save the level-data reference on the generated GraphNode.
+	node.set_meta("node_data", data)
+
 	graph.add_child(node)
 
-	# Number of rows needed is whichever side has more ports.
 	var row_count = max(
-		data.input_colors.size(),
-		data.output_colors.size()
+		data.inputs.size(),
+		data.outputs.size()
 	)
 
 	for i in range(row_count):
 		var row = Label.new()
-
 		row.text = " "
 		row.custom_minimum_size = Vector2(140, 35)
 
 		node.add_child(row)
 
-		var has_input = i < data.input_colors.size()
-		var has_output = i < data.output_colors.size()
+		var has_input = i < data.inputs.size()
+		var has_output = i < data.outputs.size()
 
 		var input_type = 0
 		var input_color = Color.WHITE
@@ -88,22 +88,19 @@ func create_programming_node(data: ProgrammingNodeData):
 		var output_type = 0
 		var output_color = Color.WHITE
 
-
 		if has_input:
-			var input_name = data.input_colors[i]
+			var input_data: ProgrammingPortData = data.inputs[i]
 
-			if PORT_TYPES.has(input_name):
-				input_type = PORT_TYPES[input_name]["type"]
-				input_color = PORT_TYPES[input_name]["color"]
-
+			if PORT_TYPES.has(input_data.color):
+				input_type = PORT_TYPES[input_data.color]["type"]
+				input_color = PORT_TYPES[input_data.color]["color"]
 
 		if has_output:
-			var output_name = data.output_colors[i]
+			var output_data: ProgrammingPortData = data.outputs[i]
 
-			if PORT_TYPES.has(output_name):
-				output_type = PORT_TYPES[output_name]["type"]
-				output_color = PORT_TYPES[output_name]["color"]
-
+			if PORT_TYPES.has(output_data.color):
+				output_type = PORT_TYPES[output_data.color]["type"]
+				output_color = PORT_TYPES[output_data.color]["color"]
 
 		node.set_slot(
 			i,
@@ -157,43 +154,79 @@ func _on_test_button_pressed():
 
 
 func test_code():
-	if level_data == null:
-		print("NO LEVEL DATA")
-		return
+	var connections = graph.get_connection_list()
 
-	var current_connections = graph.get_connection_list()
+	# First make sure EVERY required input is connected.
+	for node_data in level_data.nodes:
+		for input_index in range(node_data.inputs.size()):
+			var input_data: ProgrammingPortData = node_data.inputs[input_index]
 
-	# Wrong number of wires = immediately incorrect.
-	if current_connections.size() != level_data.correct_connections.size():
-		print("CODE FAILED")
-		return
+			if input_data.connection_key == "":
+				continue
 
-	# Check every required connection exists.
-	for correct_connection in level_data.correct_connections:
-		var found := false
+			var found := false
 
-		for current_connection in current_connections:
-			var from_node = String(current_connection["from_node"])
-			var from_port = int(current_connection["from_port"])
+			for connection in connections:
+				if (
+					String(connection["to_node"]) == node_data.id
+					and int(connection["to_port"]) == input_index
+				):
+					found = true
+					break
 
-			var to_node = String(current_connection["to_node"])
-			var to_port = int(current_connection["to_port"])
+			if not found:
+				print(
+					"CODE FAILED - MISSING INPUT: ",
+					node_data.id,
+					" / ",
+					input_data.connection_key
+				)
+				return
 
-			if (
-				from_node == correct_connection.from_node_id
-				and from_port == correct_connection.from_port
-				and to_node == correct_connection.to_node_id
-				and to_port == correct_connection.to_port
-			):
-				found = true
-				break
+	# Then verify every wire connects matching hidden keys.
+	for connection in connections:
+		var from_node_id = String(connection["from_node"])
+		var from_port = int(connection["from_port"])
 
-		if not found:
-			print("CODE FAILED")
+		var to_node_id = String(connection["to_node"])
+		var to_port = int(connection["to_port"])
+
+		var from_data = get_node_data(from_node_id)
+		var to_data = get_node_data(to_node_id)
+
+		if from_data == null or to_data == null:
+			print("CODE FAILED - UNKNOWN NODE")
 			return
 
-	# If we made it through every required connection:
+		if from_port >= from_data.outputs.size():
+			print("CODE FAILED - INVALID OUTPUT")
+			return
+
+		if to_port >= to_data.inputs.size():
+			print("CODE FAILED - INVALID INPUT")
+			return
+
+		var output_data: ProgrammingPortData = from_data.outputs[from_port]
+		var input_data: ProgrammingPortData = to_data.inputs[to_port]
+
+		if output_data.connection_key != input_data.connection_key:
+			print(
+				"CODE FAILED: ",
+				output_data.connection_key,
+				" DOES NOT MATCH ",
+				input_data.connection_key
+			)
+			return
+
 	programming_complete()
+
+
+func get_node_data(node_id: String) -> ProgrammingNodeData:
+	for node_data in level_data.nodes:
+		if node_data.id == node_id:
+			return node_data
+
+	return null
 
 
 func programming_complete():
