@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="GameTask" format=3 uid="uid://bmtygj7b6obts"]
+
+[ext_resource type="Script" uid="uid://cg8xfoam2u1kk" path="res://game_task.gd" id="1_6msu2"]
+[ext_resource type="Script" uid="uid://c6gqos06xg4bp" path="res://art_task_data.gd" id="2_w3124"]
+
+[sub_resource type="Resource" id="Resource_vkaai"]
+script = ExtResource("2_w3124")
+pattern = "
+01010
+01111
+11011
+01110
+00100
+"
+metadata/_custom_type_script = "uid://c6gqos06xg4bp"
+
+[resource]
+script = ExtResource("1_6msu2")
+id = "player"
+display_name = "Player"
+assigned_member_id = "drippzy"
+role_name = "Art"
+progress = 50.0
+task_data = SubResource("Resource_vkaai")
+metadata/_custom_type_script = "uid://cg8xfoam2u1kk"
