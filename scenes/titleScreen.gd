@@ -16,6 +16,13 @@ func _ready() -> void:
 		90.0
 	)
 
+
+	animation_player.animation_finished.connect(
+		_on_animation_finished
+	)
+
+	animation_player.play("jam_intro")
+
 	animation_player.animation_finished.connect(
 		_on_animation_finished
 	)
