@@ -49,6 +49,9 @@ func open_task(task: GameTask):
 	elif task.role_name == "Writing":
 		get_tree().change_scene_to_file("res://writing_minigame.tscn")
 
+	elif task.role_name == "Programming":
+		get_tree().change_scene_to_file("res://programming_minigame.tscn")
+
 func _on_open_button_pressed():
 	if member == null:
 		return

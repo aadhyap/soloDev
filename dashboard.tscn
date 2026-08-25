@@ -18,9 +18,8 @@ offset_bottom = 40.0
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=974702080]
 layout_mode = 0
 offset_left = 300.0
-offset_top = 150.0
-offset_right = 340.0
-offset_bottom = 233.0
+offset_right = 750.0
+offset_bottom = 675.0
 offset_transform_position = Vector2(500, 500)
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1687898848]

@@ -11,7 +11,8 @@ var tasks: Array[GameTask] = [
 	preload("res://gameTasks/drawing1.tres"),
 	preload("res://gameTasks/drawing2.tres"),
 	preload("res://gameTasks/writing1.tres"),
-	preload("res://gameTasks/writing2.tres")
+	preload("res://gameTasks/writing2.tres"),
+	preload("res://gameTasks/programming1.tres")
 ]
 
 var current_task: GameTask = null

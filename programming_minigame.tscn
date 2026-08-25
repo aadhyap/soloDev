@@ -26,96 +26,6 @@ offset_bottom = 550.0
 minimap_enabled = false
 minimap_size = Vector2(1000, 500)
 
-[node name="RunNode" type="GraphNode" parent="GraphEdit" unique_id=1575401520]
-layout_mode = 0
-offset_left = 244.0
-offset_top = 137.0
-offset_right = 311.0
-offset_bottom = 215.0
-mouse_filter = 1
-position_offset = Vector2(244, 137)
-slot/0/left_enabled = false
-slot/0/left_type = 0
-slot/0/left_color = Color(1, 1, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color(0.1764706, 1, 0.96862745, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-
-[node name="RunLabel" type="Label" parent="GraphEdit/RunNode" unique_id=541154766]
-layout_mode = 2
-text = "Run"
-
-[node name="NodeA" type="GraphNode" parent="GraphEdit" unique_id=1054653635]
-layout_mode = 0
-offset_left = 415.0
-offset_top = 120.0
-offset_right = 512.0
-offset_bottom = 223.0
-mouse_filter = 1
-position_offset = Vector2(415, 120)
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color(4.1392445e-06, 0.76434255, 0.7643427, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color(0, 0.70870304, 0.70870304, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-slot/1/left_enabled = false
-slot/1/left_type = 0
-slot/1/left_color = Color(1, 1, 1, 1)
-slot/1/left_icon = null
-slot/1/right_enabled = true
-slot/1/right_type = 0
-slot/1/right_color = Color(0.14796004, 0.9358893, 0.25326657, 1)
-slot/1/right_icon = null
-slot/1/draw_stylebox = true
-
-[node name="BlueRow" type="Label" parent="GraphEdit/NodeA" unique_id=1538910562]
-layout_mode = 2
-text = "NODE A"
-
-[node name="GreenRow" type="Label" parent="GraphEdit/NodeA" unique_id=1369809716]
-layout_mode = 2
-
-[node name="EndNode" type="GraphNode" parent="GraphEdit" unique_id=107897897]
-layout_mode = 0
-offset_left = 583.0
-offset_top = 171.0
-offset_right = 649.0
-offset_bottom = 274.0
-mouse_filter = 1
-position_offset = Vector2(583, 171)
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color(1.3957917e-06, 0.5727729, 0.57278943, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = false
-slot/0/right_type = 0
-slot/0/right_color = Color(1, 1, 1, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-slot/1/left_enabled = true
-slot/1/left_type = 0
-slot/1/left_color = Color(5.390644e-06, 0.80101126, 0.32772288, 1)
-slot/1/left_icon = null
-slot/1/right_enabled = false
-slot/1/right_type = 0
-slot/1/right_color = Color(1, 1, 1, 1)
-slot/1/right_icon = null
-slot/1/draw_stylebox = true
-
-[node name="BlueRow" type="Label" parent="GraphEdit/EndNode" unique_id=1408068392]
-layout_mode = 2
-text = "End"
-
-[node name="GreenRow" type="Label" parent="GraphEdit/EndNode" unique_id=21153715]
-layout_mode = 2
-
 [node name="TestButton" type="Button" parent="." unique_id=1069688972]
 layout_mode = 0
 offset_left = 870.0
@@ -132,3 +42,5 @@ offset_right = 280.0
 offset_bottom = 590.0
 text = "Back
 "
+
+[connection signal="pressed" from="TestButton" to="." method="_on_test_button_pressed"]
