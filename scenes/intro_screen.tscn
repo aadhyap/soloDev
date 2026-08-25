@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b7takqqyo45po"]
+
+[node name="IntroScreen" type="Control" unique_id=1307353441]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueLabel" type="Label" parent="." unique_id=368218078]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ContinueButton" type="Button" parent="." unique_id=959660459]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

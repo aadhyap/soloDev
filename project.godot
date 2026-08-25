@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="SoloDev"
-run/main_scene="uid://b30bt5klbvwh5"
+run/main_scene="uid://cp3efq5ovbg3o"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameState="*uid://bbmrrt4gts8cv"
+MusicManager="*uid://dyqq3cdjnng5d"
 
 [display]
 

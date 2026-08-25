@@ -1,0 +1,272 @@
+[gd_scene format=3 uid="uid://cdrnr6w0y7wyp"]
+
+[sub_resource type="GDScript" id="GDScript_uhit1"]
+script/source = "extends Control
+
+@export_file(\"*.tscn\") var next_scene: String = \"res://scenes/titleScreen.tscn\"
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var main_song: AudioStream
+
+func _ready() -> void:
+	# Start the main song if it isn't already playing
+	if not MusicManager.player.playing:
+		MusicManager.play_track(
+			MusicManager.main_song,
+			0.0,   # start position
+			0.0,   # loop start
+			90.0   # loop end
+		)
+	else:
+		# If music is already playing, just change the loop
+		MusicManager.set_loop_section(
+			0.0,
+			90.0
+		)
+
+	animation_player.animation_finished.connect(
+		_on_animation_finished
+	)
+
+	animation_player.play(\"jam_intro\")
+	
+
+
+func _on_animation_finished(animation_name: StringName) -> void:
+	if animation_name != \"jam_intro\":
+		return
+
+	load_next_scene()
+
+
+func load_next_scene() -> void:
+	if next_scene.is_empty():
+		push_error(\"Next scene is not assigned.\")
+		return
+
+	var error: Error = get_tree().change_scene_to_file(next_scene)
+
+	if error != OK:
+		push_error(\"Could not load scene: \" + next_scene)
+"
+
+[sub_resource type="Animation" id="Animation_dousc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/SubmissionLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer/VBoxContainer/SubmissionLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer/VBoxContainer/GMTKLabel:offset_transform_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CenterContainer/VBoxContainer/GMTKLabel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CenterContainer/VBoxContainer/CreatorLabel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_smgtn"]
+resource_name = "jam_intro"
+length = 4.4333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/SubmissionLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666666),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer/VBoxContainer/SubmissionLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.4333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer/VBoxContainer/GMTKLabel:offset_transform_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CenterContainer/VBoxContainer/GMTKLabel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.11),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CenterContainer/VBoxContainer/CreatorLabel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.03, 2.0333, 3.3333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.3666666, 4.4333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pg7h5"]
+_data = {
+&"RESET": SubResource("Animation_dousc"),
+&"jam_intro": SubResource("Animation_smgtn")
+}
+
+[node name="TitleScreen" type="Control" unique_id=1130045377]
+modulate = Color(1, 1, 1, 0)
+z_index = 10
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -23.444458
+offset_top = -14.0
+offset_right = 13.888916
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_uhit1")
+next_scene = "uid://b30bt5klbvwh5"
+
+[node name="Background" type="ColorRect" parent="." unique_id=1674074564]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=59602372]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=344550400]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="SubmissionLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1395517339]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+horizontal_alignment = 1
+
+[node name="GMTKLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=850581204]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_transform_scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(0.40245327, 0.6376097, 0.66627765, 1)
+theme_override_colors/font_shadow_color = Color(0.9882353, 0.9882353, 0.99215686, 0)
+theme_override_colors/font_outline_color = Color(0.73672867, 0.15865636, 0.11529129, 1)
+theme_override_font_sizes/font_size = 70
+text = "Why I Work Alone"
+horizontal_alignment = 1
+
+[node name="CreatorLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=520562190]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "created by Onian"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=677856640]
+libraries/ = SubResource("AnimationLibrary_pg7h5")

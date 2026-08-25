@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GameTask" format=3 uid="uid://cprp0rvpoh3uo"]
 
 [ext_resource type="Script" uid="uid://cg8xfoam2u1kk" path="res://game_task.gd" id="1_72swj"]
-[ext_resource type="Script" uid="uid://c2lhjfp50v5kx" path="res://writing_task_data.gd" id="2_sevok"]
+[ext_resource type="Script" uid="uid://c2lhjfp50v5kx" path="res://minigames/writing/writing_task_data.gd" id="2_sevok"]
 
 [sub_resource type="Resource" id="Resource_w3124"]
 script = ExtResource("2_sevok")

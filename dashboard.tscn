@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://b30bt5klbvwh5"]
 
-[ext_resource type="PackedScene" uid="uid://b6t2cs0kx4b0v" path="res://team_member_card.tscn" id="1_23vhs"]
+[ext_resource type="PackedScene" uid="uid://b6t2cs0kx4b0v" path="res://dashboardUI/team_member_card.tscn" id="1_23vhs"]
 [ext_resource type="Resource" uid="uid://cay6hmvpcvb8s" path="res://membersData/drippzy.tres" id="3_bc6a6"]
 [ext_resource type="Resource" uid="uid://dg8xwl7ohgqvb" path="res://membersData/jamal.tres" id="3_ly5nh"]
 [ext_resource type="Resource" uid="uid://o0we86nc1eil" path="res://membersData/rimbo.tres" id="4_1w0xl"]
+[ext_resource type="Resource" uid="uid://cpyabxrjjyt0e" path="res://membersData/riener.tres" id="4_bw4wq"]
 [ext_resource type="Resource" uid="uid://cfgxwnqiplcf3" path="res://membersData/risa.tres" id="5_bw4wq"]
 
 [node name="Dashboard" type="Control" unique_id=2072022460]
@@ -25,24 +26,31 @@ offset_transform_position = Vector2(500, 500)
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1687898848]
 layout_mode = 2
 
-[node name="TeamMemberCard" parent="VBoxContainer" unique_id=59710976 instance=ExtResource("1_23vhs")]
+[node name="drippzy" parent="VBoxContainer" unique_id=59710976 instance=ExtResource("1_23vhs")]
 layout_mode = 2
 member = ExtResource("3_bc6a6")
 
-[node name="TeamMemberCard2" parent="VBoxContainer" unique_id=291573546 instance=ExtResource("1_23vhs")]
-layout_mode = 2
-member = ExtResource("3_ly5nh")
-
-[node name="TeamMemberCard4" parent="VBoxContainer" unique_id=1422882137 instance=ExtResource("1_23vhs")]
+[node name="risa" parent="VBoxContainer" unique_id=1422882137 instance=ExtResource("1_23vhs")]
 layout_mode = 2
 member = ExtResource("5_bw4wq")
 
-[node name="TeamMemberCard3" parent="VBoxContainer" unique_id=1462025185 instance=ExtResource("1_23vhs")]
+[node name="riener" parent="VBoxContainer" unique_id=291573546 instance=ExtResource("1_23vhs")]
+layout_mode = 2
+member = ExtResource("4_bw4wq")
+
+[node name="jamal" parent="VBoxContainer" unique_id=1830689734 instance=ExtResource("1_23vhs")]
+layout_mode = 2
+member = ExtResource("3_ly5nh")
+
+[node name="rimbo" parent="VBoxContainer" unique_id=1462025185 instance=ExtResource("1_23vhs")]
 layout_mode = 2
 member = ExtResource("4_1w0xl")
 
 [node name="Submit Game" type="Button" parent="VBoxContainer" unique_id=1550321919]
 custom_minimum_size = Vector2(450, 60)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1590006961]
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="." unique_id=1934854394]

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bvutdfc48wxai"]
+
+[ext_resource type="Script" uid="uid://cq4fvb3ii65ub" path="res://minigames/programming_mini_game/programming_minigame.gd" id="1_edgdy"]
+
+[node name="ProgrammingMinigame" type="Control" unique_id=839861054]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_edgdy")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1597062022]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 178.0
+offset_bottom = 43.0
+text = "FIX JAMAL'S CODE"
+
+[node name="GraphEdit" type="GraphEdit" parent="." unique_id=1323770197]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 1050.0
+offset_bottom = 550.0
+minimap_enabled = false
+minimap_size = Vector2(1000, 500)
+
+[node name="TestButton" type="Button" parent="." unique_id=1069688972]
+layout_mode = 0
+offset_left = 870.0
+offset_top = 550.0
+offset_right = 1050.0
+offset_bottom = 590.0
+text = "Test Code"
+
+[node name="Back" type="Button" parent="." unique_id=1239942410]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 550.0
+offset_right = 280.0
+offset_bottom = 590.0
+text = "Back
+"
+
+[connection signal="pressed" from="TestButton" to="." method="_on_test_button_pressed"]

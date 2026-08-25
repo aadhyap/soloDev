@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TeamMember" format=3 uid="uid://cpyabxrjjyt0e"]
+
+[ext_resource type="Script" uid="uid://dfmu1xgnj2kwp" path="res://dashboardUI/team_member.gd" id="1_3p5ys"]
+
+[resource]
+script = ExtResource("1_3p5ys")
+id = "riener"
+display_name = "Riener"
+role_name = "Programming"
+blurb = "total code wizard"
+metadata/_custom_type_script = "uid://dfmu1xgnj2kwp"

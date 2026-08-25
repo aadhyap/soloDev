@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://mbb87p64j1ci"]
+
+[node name="EndinScreen_tscn" type="Control" unique_id=1526294018]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResultLabel" type="Label" parent="." unique_id=879620544]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="MessageLabel" type="Label" parent="." unique_id=1890817725]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TryAgainButton" type="Button" parent="." unique_id=896950518]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

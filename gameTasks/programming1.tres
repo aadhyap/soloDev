@@ -1,74 +1,77 @@
 [gd_resource type="Resource" script_class="GameTask" format=3 uid="uid://dluts8bok2glb"]
 
-[ext_resource type="Script" uid="uid://cg8xfoam2u1kk" path="res://game_task.gd" id="1_tc7ng"]
-[ext_resource type="Script" uid="uid://c30pvob3wui1m" path="res://programming_mini_game/programming_node_data.gd" id="2_xrkcl"]
-[ext_resource type="Script" uid="uid://dgt6jrijjiycu" path="res://programming_mini_game/programming_port_data.gd" id="3_e6hb8"]
-[ext_resource type="Script" uid="uid://bknkelw6pi8cp" path="res://programming_mini_game/programming_task_data.gd" id="3_x26x5"]
+[ext_resource type="Script" uid="uid://cg8xfoam2u1kk" path="res://game_task.gd" id="1_55wy5"]
+[ext_resource type="Script" uid="uid://dgt6jrijjiycu" path="res://minigames/programming_mini_game/programming_port_data.gd" id="3_55wy5"]
+[ext_resource type="Script" uid="uid://c30pvob3wui1m" path="res://minigames/programming_mini_game/programming_node_data.gd" id="3_u0pec"]
+[ext_resource type="Script" uid="uid://bknkelw6pi8cp" path="res://minigames/programming_mini_game/programming_task_data.gd" id="4_xaw4a"]
 
 [sub_resource type="Resource" id="Resource_laj7n"]
-script = ExtResource("3_e6hb8")
+script = ExtResource("3_55wy5")
 connection_key = "run_to_middle"
 metadata/_custom_type_script = "uid://dgt6jrijjiycu"
 
 [sub_resource type="Resource" id="Resource_e6hb8"]
-script = ExtResource("2_xrkcl")
+script = ExtResource("3_u0pec")
 id = "run"
 title = "RUN"
 start_position = Vector2(100, 250)
-outputs = Array[ExtResource("3_e6hb8")]([SubResource("Resource_laj7n")])
+outputs = Array[ExtResource("3_55wy5")]([SubResource("Resource_laj7n")])
 metadata/_custom_type_script = "uid://c30pvob3wui1m"
 
 [sub_resource type="Resource" id="Resource_xniyy"]
-script = ExtResource("3_e6hb8")
+script = ExtResource("3_55wy5")
 connection_key = "run_to_middle"
 metadata/_custom_type_script = "uid://dgt6jrijjiycu"
 
 [sub_resource type="Resource" id="Resource_mab0t"]
-script = ExtResource("3_e6hb8")
+script = ExtResource("3_55wy5")
 connection_key = "blue_to_end"
 metadata/_custom_type_script = "uid://dgt6jrijjiycu"
 
 [sub_resource type="Resource" id="Resource_cm76a"]
-script = ExtResource("3_e6hb8")
+script = ExtResource("3_55wy5")
 color = "green"
 connection_key = "green_to_end"
 metadata/_custom_type_script = "uid://dgt6jrijjiycu"
 
 [sub_resource type="Resource" id="Resource_530qi"]
-script = ExtResource("2_xrkcl")
+script = ExtResource("3_u0pec")
 id = "middle"
 title = "Node A"
 start_position = Vector2(450, 120)
-inputs = Array[ExtResource("3_e6hb8")]([SubResource("Resource_xniyy")])
-outputs = Array[ExtResource("3_e6hb8")]([SubResource("Resource_mab0t"), SubResource("Resource_cm76a")])
+inputs = Array[ExtResource("3_55wy5")]([SubResource("Resource_xniyy")])
+outputs = Array[ExtResource("3_55wy5")]([SubResource("Resource_mab0t"), SubResource("Resource_cm76a")])
 metadata/_custom_type_script = "uid://c30pvob3wui1m"
 
 [sub_resource type="Resource" id="Resource_jiosk"]
-script = ExtResource("3_e6hb8")
+script = ExtResource("3_55wy5")
 connection_key = "blue_to_end"
 metadata/_custom_type_script = "uid://dgt6jrijjiycu"
 
-[sub_resource type="Resource" id="Resource_q3dep"]
-script = ExtResource("3_e6hb8")
+[sub_resource type="Resource" id="Resource_uimfo"]
+script = ExtResource("3_55wy5")
 color = "green"
 connection_key = "green_to_end"
 metadata/_custom_type_script = "uid://dgt6jrijjiycu"
 
 [sub_resource type="Resource" id="Resource_kcr7n"]
-script = ExtResource("2_xrkcl")
+script = ExtResource("3_u0pec")
 id = "end"
 title = "End"
 start_position = Vector2(800, 300)
-inputs = Array[ExtResource("3_e6hb8")]([SubResource("Resource_jiosk")])
-outputs = Array[ExtResource("3_e6hb8")]([SubResource("Resource_q3dep")])
+inputs = Array[ExtResource("3_55wy5")]([SubResource("Resource_jiosk"), SubResource("Resource_uimfo")])
 metadata/_custom_type_script = "uid://c30pvob3wui1m"
 
 [sub_resource type="Resource" id="Resource_oja2d"]
-script = ExtResource("3_x26x5")
-nodes = Array[ExtResource("2_xrkcl")]([SubResource("Resource_e6hb8"), SubResource("Resource_530qi"), SubResource("Resource_kcr7n")])
+script = ExtResource("4_xaw4a")
+nodes = Array[ExtResource("3_u0pec")]([SubResource("Resource_e6hb8"), SubResource("Resource_530qi"), SubResource("Resource_kcr7n")])
 metadata/_custom_type_script = "uid://bknkelw6pi8cp"
 
 [resource]
-script = ExtResource("1_tc7ng")
+script = ExtResource("1_55wy5")
+id = "programming1"
+display_name = "Fix Code"
+assigned_member_id = "riener"
+role_name = "Programming"
 task_data = SubResource("Resource_oja2d")
 metadata/_custom_type_script = "uid://cg8xfoam2u1kk"

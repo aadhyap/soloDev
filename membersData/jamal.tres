@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="TeamMember" format=3 uid="uid://dg8xwl7ohgqvb"]
 
-[ext_resource type="Script" uid="uid://dfmu1xgnj2kwp" path="res://team_member.gd" id="1_w23fp"]
+[ext_resource type="Script" uid="uid://dfmu1xgnj2kwp" path="res://dashboardUI/team_member.gd" id="1_w23fp"]
 
 [resource]
 script = ExtResource("1_w23fp")
-id = "rimbo"
-display_name = "Rimbo"
-role_name = "Music"
-blurb = "Im cooking rn"
+id = "jamal"
+display_name = "Jamal"
+role_name = "Animation"
+blurb = "waiting on the art"
 claimed_progress = 85.0
 metadata/_custom_type_script = "uid://dfmu1xgnj2kwp"
