@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GameTask" format=3 uid="uid://bejeikjvym0ku"]
+
+[ext_resource type="Script" uid="uid://cg8xfoam2u1kk" path="res://game_task.gd" id="1_gwd64"]
+
+[resource]
+script = ExtResource("1_gwd64")
+id = "drawing2"
+display_name = "enemy"
+assigned_member_id = "drippzy"
+role_name = "Art"
+progress = 50.0
+metadata/_custom_type_script = "uid://cg8xfoam2u1kk"
