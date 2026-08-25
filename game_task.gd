@@ -9,3 +9,5 @@ extends Resource
 
 @export var progress: float = 0.0
 @export var complete: bool = false
+
+@export var task_data: Resource

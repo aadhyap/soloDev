@@ -8,9 +8,9 @@ var team_members: Array[TeamMember] = [
 ]
 
 var tasks: Array[GameTask] = [
-	preload("res://tasks/drawing1.tres"),
-	preload("res://tasks/drawing2.tres"),
-	preload("res://tasks/writingTask1.tres")
+	preload("res://gameTasks/drawing1.tres"),
+	preload("res://gameTasks/writing1.tres"),
+	preload("res://gameTasks/writing2.tres")
 ]
 
 var current_task: GameTask = null

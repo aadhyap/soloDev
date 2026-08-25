@@ -2,40 +2,53 @@ extends Control
 
 @onready var grid = $GridContainer
 
-const GRID_SIZE = 5
-
-# 1 = should be filled
-# 0 = should stay empty
-var target_pattern = [
-	0, 1, 0, 1, 0,
-	1, 1, 1, 1, 1,
-	1, 1, 1, 1, 1,
-	0, 1, 1, 1, 0,
-	0, 0, 1, 0, 0
-]
+var grid_width := 0
+var grid_height := 0
+var target_pattern: Array[int] = []
 
 var filled_count := 0
 var total_needed := 0
 
 
 func _ready():
+	if GameState.current_task == null:
+		print("NO CURRENT TASK")
+		return
+
+	var data = GameState.current_task.task_data as ArtTaskData
+
+	if data == null:
+		print("ART TASK HAS NO ART DATA")
+		return
+
+	grid_width = data.grid_width
+	grid_height = data.grid_height
+	target_pattern = parse_pattern(data.pattern)
+
+	grid.columns = grid_width
+
 	create_pixel_grid()
 
 
 func create_pixel_grid():
+	total_needed = 0
+
 	for value in target_pattern:
 		if value == 1:
 			total_needed += 1
 
-	for i in range(GRID_SIZE * GRID_SIZE):
+	for i in range(grid_width * grid_height):
 		var pixel = Button.new()
 
 		pixel.custom_minimum_size = Vector2(60, 60)
 		pixel.text = ""
 
-		# Show the pixels that need to be filled as faded red
+		# Faded target pixel
 		if target_pattern[i] == 1:
-			set_pixel_color(pixel, Color(0.3, 0.1, 0.1))
+			set_pixel_color(
+				pixel,
+				Color(0.3, 0.1, 0.1)
+			)
 
 		pixel.pressed.connect(
 			func():
@@ -50,20 +63,23 @@ func on_pixel_pressed(pixel: Button, index: int):
 		print("WRONG PIXEL")
 		return
 
-	# Already filled
 	if pixel.has_meta("filled"):
 		return
 
 	pixel.set_meta("filled", true)
 
-	# Solid red
-	set_pixel_color(pixel, Color(0.571, 0.155, 0.466, 1.0))
+	# Filled pixel
+	set_pixel_color(
+		pixel,
+		Color(0.571, 0.155, 0.466, 1.0)
+	)
 
 	filled_count += 1
 
 	if filled_count >= total_needed:
 		art_complete()
-		
+
+
 func set_pixel_color(pixel: Button, color: Color):
 	var style = StyleBoxFlat.new()
 	style.bg_color = color
@@ -72,15 +88,34 @@ func set_pixel_color(pixel: Button, color: Color):
 	pixel.add_theme_stylebox_override("hover", style)
 	pixel.add_theme_stylebox_override("pressed", style)
 
+
 func art_complete():
 	if GameState.current_task == null:
 		print("NO CURRENT TASK")
 		return
 
-	print("TASK COMPLETE: ", GameState.current_task.display_name)
+	print(
+		"TASK COMPLETE: ",
+		GameState.current_task.display_name
+	)
 
 	GameState.complete_current_task()
 
 	GameState.current_task = null
 
-	get_tree().change_scene_to_file("res://dashboard.tscn")
+	get_tree().change_scene_to_file(
+		"res://dashboard.tscn"
+	)
+
+
+func parse_pattern(pattern: String) -> Array[int]:
+	var result: Array[int] = []
+
+	for character in pattern:
+		if character == "0":
+			result.append(0)
+
+		elif character == "1":
+			result.append(1)
+
+	return result

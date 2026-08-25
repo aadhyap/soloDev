@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="GameTask" format=3 uid="uid://cprp0rvpoh3uo"]
+
+[ext_resource type="Script" uid="uid://cg8xfoam2u1kk" path="res://game_task.gd" id="1_72swj"]
+[ext_resource type="Script" uid="uid://c2lhjfp50v5kx" path="res://writing_task_data.gd" id="2_sevok"]
+
+[sub_resource type="Resource" id="Resource_w3124"]
+script = ExtResource("2_sevok")
+prompt = "The kangaroo"
+metadata/_custom_type_script = "uid://c2lhjfp50v5kx"
+
+[resource]
+script = ExtResource("1_72swj")
+id = "intro"
+display_name = "Intro"
+assigned_member_id = "risa"
+role_name = "Writing"
+task_data = SubResource("Resource_w3124")
+metadata/_custom_type_script = "uid://cg8xfoam2u1kk"
