@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6g0k1mkme3es"]
 
 [ext_resource type="Script" uid="uid://d1k2j1vqlsy2o" path="res://minigames/writing/writing_minigame.gd" id="1_sbvjl"]
+[ext_resource type="PackedScene" uid="uid://1m66htvxa4i0" path="res://dashboardUI/DialogueSystem/dialogue_box.tscn" id="2_pkvbn"]
 
 [node name="Control" type="Control" unique_id=538729271]
 layout_mode = 3
@@ -33,5 +34,7 @@ layout_mode = 2
 [node name="BackButton" type="Button" parent="VBoxContainer" unique_id=997817271]
 layout_mode = 2
 text = "Back"
+
+[node name="DialogueUI" parent="." unique_id=38181865 instance=ExtResource("2_pkvbn")]
 
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

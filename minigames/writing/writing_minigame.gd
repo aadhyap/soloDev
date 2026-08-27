@@ -22,6 +22,17 @@ func _ready():
 
 	typed_count = 0
 	progress_bar.value = 0
+	
+	if GameState.pending_dialogue != "":
+		var dialogue_box = get_tree().get_first_node_in_group("dialogue_box")
+
+		if dialogue_box:
+			var dialogue_id = GameState.pending_dialogue
+
+			GameState.pending_dialogue = ""
+			GameState.mark_dialogue_seen(dialogue_id)
+
+			dialogue_box.start(dialogue_id)
 
 	update_story_display()
 

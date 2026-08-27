@@ -63,7 +63,7 @@ func get_portrait_for_speaker(speaker_name: String) -> Texture2D:
 		return ila_portrait
 
 	for member in GameState.team_members:
-		if member.display_name.to_lower() == speaker_name.to_lower():
+		if member.id.to_lower() == speaker_name.to_lower():
 			return member.profile_picture
 
 	return null

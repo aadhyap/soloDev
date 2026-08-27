@@ -1,11 +1,11 @@
 {
-  "risa_first_check": [
+  "rizza_first_check": [
 	{
 	  "speaker": "Ila",
 	  "text": "bruh what am I looking at"
 	},
 	{
-	  "speaker": "Risa",
+	  "speaker": "Rizza",
 	  "text": "Uhh... so this is all I got for the story."
 	}
   ],
@@ -19,5 +19,54 @@
 	  "speaker": "Drippzy",
 	  "text": "Yeah."
 	}
+  ],
+  "drippzy_kickout": [
+	{
+	  "speaker": "Drippzy",
+	  "text": "aight stop doing all the work bro"
+	},
+	{
+	  "speaker": "Ila",
+	  "text": "we literally have a deadline"
+	},
+	{
+	  "speaker": "Drippzy",
+	  "text": "yeah and I'm literally working on it now"
+	}
+  ],
+
+  "risa_kickout": [
+	{
+	  "speaker": "Rizza",
+	  "text": "Okay okay, let me actually write something."
+	},
+	{
+	  "speaker": "Ila",
+	  "text": "You wrote one word."
+	},
+	{
+	  "speaker": "Rizza",
+	  "text": "And now I'm writing a second one."
+	}
+  ],
+
+  "risa_first_check": [
+	{
+	  "speaker": "Ila",
+	  "text": "bruh what am I looking at"
+	},
+	{
+	  "speaker": "Rizza",
+	  "text": "Uhh so this is all I got for the story."
+	},
+	{
+	  "speaker": "Ila",
+	  "text": "You wrote 'The.'"
+	},
+	{
+	  "speaker": "Rizza",
+	  "text": "I was getting there."
+	}
   ]
+
 }

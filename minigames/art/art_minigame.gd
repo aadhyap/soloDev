@@ -11,13 +11,6 @@ var total_needed := 0
 
 
 func _ready():
-	print("CURRENT TASK: ", GameState.current_task)
-	print("PENDING DIALOGUE: '", GameState.pending_dialogue, "'")
-	print("SEEN DIALOGUES: ", GameState.seen_dialogues)
-
-	if GameState.current_task == null:
-		print("NO CURRENT TASK")
-		return
 	if GameState.current_task == null:
 		print("NO CURRENT TASK")
 		return
@@ -37,11 +30,9 @@ func _ready():
 	create_pixel_grid()
 	
 	if GameState.pending_dialogue != "":
-		prints("get here")
 		var dialogue_box = get_tree().get_first_node_in_group("dialogue_box")
 
 		if dialogue_box:
-			prints("get here PLZ")
 			var dialogue_id = GameState.pending_dialogue
 
 			GameState.pending_dialogue = ""
@@ -119,14 +110,24 @@ func art_complete():
 		GameState.current_task.display_name
 	)
 
+	var member_id = GameState.current_task.assigned_member_id
+
 	GameState.complete_current_task()
+
+	var dialogue_box = get_tree().get_first_node_in_group("dialogue_box")
+
+	if dialogue_box != null:
+		var dialogue_id = member_id + "_kickout"
+
+		dialogue_box.start(dialogue_id)
+
+		await dialogue_box.finished
 
 	GameState.current_task = null
 
 	get_tree().change_scene_to_file(
 		"res://dashboard.tscn"
 	)
-
 
 func parse_pattern(pattern: String) -> Array[int]:
 	var result: Array[int] = []
