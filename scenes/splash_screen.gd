@@ -4,7 +4,10 @@ extends Control
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-
+func _on_back_pressed() -> void:
+	GameState.current_task = null
+	get_tree().change_scene_to_file("res://dashboard.tscn")
+	
 func _ready() -> void:
 	# Start the main song if it isn't already playing
 	if not MusicManager.player.playing:

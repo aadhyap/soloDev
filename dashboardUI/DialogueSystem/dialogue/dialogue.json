@@ -1,0 +1,39 @@
+{
+  "risa_first_check": [
+	{
+	  "speaker": "Ashi",
+	  "text": "bruh what am I looking at"
+	},
+	{
+	  "speaker": "Risa",
+	  "text": "Uhh... so this is all I got for the story."
+	},
+	{
+	  "speaker": "Ashi",
+	  "text": "You wrote 'The.'"
+	},
+	{
+	  "speaker": "Risa",
+	  "text": "I was getting there."
+	}
+  ],
+
+  "drippzy_first_check": [
+	{
+	  "speaker": "Ashi",
+	  "text": "Is that the character?"
+	},
+	{
+	  "speaker": "Drippzy",
+	  "text": "Yeah."
+	},
+	{
+	  "speaker": "Ashi",
+	  "text": "It's a stick figure."
+	},
+	{
+	  "speaker": "Drippzy",
+	  "text": "It's concept art."
+	}
+  ]
+}

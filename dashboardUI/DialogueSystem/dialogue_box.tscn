@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://1m66htvxa4i0"]
+
+[ext_resource type="Script" uid="uid://eehqod36o3j4" path="res://dashboardUI/DialogueSystem/dialog_box.gd" id="1_0e2x4"]
+
+[node name="DialogueUI" type="CanvasLayer" unique_id=38181865]
+
+[node name="DialogBox" type="PanelContainer" parent="." unique_id=1178802324]
+custom_minimum_size = Vector2(1200, 170)
+offset_left = 196.0
+offset_top = 500.0
+offset_right = 1396.0
+offset_bottom = 670.0
+scale = Vector2(0.65196556, 0.9474996)
+script = ExtResource("1_0e2x4")
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogBox" unique_id=1049442398]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogBox/MarginContainer" unique_id=1184356803]
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="DialogBox/MarginContainer/HBoxContainer" unique_id=996483597]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextColumn" type="VBoxContainer" parent="DialogBox/MarginContainer/HBoxContainer" unique_id=533960432]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="DialogBox/MarginContainer/HBoxContainer/TextColumn" unique_id=1307579703]
+layout_mode = 2
+
+[node name="DialogueLabel" type="Label" parent="DialogBox/MarginContainer/HBoxContainer/TextColumn" unique_id=1438212370]
+layout_mode = 2
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ContinueLabel" type="Label" parent="DialogBox/MarginContainer/HBoxContainer/TextColumn" unique_id=2053096846]
+layout_mode = 2
+text = "PRESS ENTER"

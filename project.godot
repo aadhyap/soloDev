@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SoloDev"
-run/main_scene="uid://b7takqqyo45po"
+run/main_scene="uid://b30bt5klbvwh5"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameState="*uid://bbmrrt4gts8cv"
 MusicManager="*uid://dyqq3cdjnng5d"
+DialogueManager="*uid://brioma511gcre"
 
 [display]
 

@@ -44,3 +44,4 @@ text = "Back
 "
 
 [connection signal="pressed" from="TestButton" to="." method="_on_test_button_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

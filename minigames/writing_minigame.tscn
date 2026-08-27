@@ -33,3 +33,5 @@ layout_mode = 2
 [node name="BackButton" type="Button" parent="VBoxContainer" unique_id=997817271]
 layout_mode = 2
 text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

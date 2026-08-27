@@ -39,3 +39,5 @@ offset_top = 120.0
 offset_right = 500.0
 offset_bottom = 170.0
 text = "BACK"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

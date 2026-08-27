@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b30bt5klbvwh5"]
 
+[ext_resource type="PackedScene" uid="uid://1m66htvxa4i0" path="res://dashboardUI/DialogueSystem/dialogue_box.tscn" id="1_1w0xl"]
 [ext_resource type="PackedScene" uid="uid://b6t2cs0kx4b0v" path="res://dashboardUI/team_member_card.tscn" id="1_23vhs"]
 [ext_resource type="Resource" uid="uid://cay6hmvpcvb8s" path="res://membersData/drippzy.tres" id="3_bc6a6"]
 [ext_resource type="Resource" uid="uid://o0we86nc1eil" path="res://membersData/rimbo.tres" id="4_1w0xl"]
@@ -57,3 +58,5 @@ member = ExtResource("4_bw4wq")
 layout_mode = 2
 size_flags_vertical = 3
 member = ExtResource("4_1w0xl")
+
+[node name="DialogueBox" parent="CenterContainer" unique_id=1174554199 instance=ExtResource("1_1w0xl")]

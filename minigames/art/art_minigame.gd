@@ -119,3 +119,9 @@ func parse_pattern(pattern: String) -> Array[int]:
 			result.append(1)
 
 	return result
+
+
+func _on_back_button_pressed() -> void:
+	get_tree().change_scene_to_file(
+		"res://dashboard.tscn"
+	)

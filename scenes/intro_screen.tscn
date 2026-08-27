@@ -24,4 +24,13 @@ volume_db = 0.30000013
 autoplay = true
 expand = true
 
+[node name="Label" type="Label" parent="." unique_id=1734901851]
+layout_mode = 0
+offset_left = 849.0
+offset_top = 634.0
+offset_right = 1027.0
+offset_bottom = 657.0
+theme_override_colors/font_color = Color(0.34968925, 0.34968933, 0.3496893, 1)
+text = "PRESS P TO SKIP INTRO"
+
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
