@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4rp18pw2u5e2"
-path="res://.godot/imported/Riza.png-3e643140744c2e8fe059d16821ee8cb1.ctex"
+path="res://.godot/imported/ila.png-574d6f705e115a492a5a6ec08b8f946c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/profile_pics/Riza.png"
-dest_files=["res://.godot/imported/Riza.png-3e643140744c2e8fe059d16821ee8cb1.ctex"]
+source_file="res://assets/profile_pics/ila.png"
+dest_files=["res://.godot/imported/ila.png-574d6f705e115a492a5a6ec08b8f946c.ctex"]
 
 [params]
 

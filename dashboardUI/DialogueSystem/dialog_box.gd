@@ -16,7 +16,7 @@ signal finished
 @onready var continue_label: Label = \
 	$MarginContainer/HBoxContainer/TextColumn/ContinueLabel
 
-@export var ashi_portrait: Texture2D
+@export var ila_portrait: Texture2D
 
 
 var lines: Array = []
@@ -59,12 +59,10 @@ func show_current_line() -> void:
 	portrait.texture = get_portrait_for_speaker(speaker_name)
 	
 func get_portrait_for_speaker(speaker_name: String) -> Texture2D:
-	if speaker_name.to_lower() == "ashi":
-		
-		return ashi_portrait
+	if speaker_name.to_lower() == "ila":
+		return ila_portrait
 
 	for member in GameState.team_members:
-		
 		if member.id == speaker_name.to_lower():
 			return member.profile_picture
 

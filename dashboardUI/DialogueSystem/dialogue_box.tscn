@@ -1,7 +1,24 @@
 [gd_scene format=3 uid="uid://1m66htvxa4i0"]
 
 [ext_resource type="Script" uid="uid://eehqod36o3j4" path="res://dashboardUI/DialogueSystem/dialog_box.gd" id="1_0e2x4"]
-[ext_resource type="Texture2D" uid="uid://u8sl7w8de7jo" path="res://assets/profile_pics/Drippzy.png" id="2_i5slu"]
+[ext_resource type="Texture2D" uid="uid://b4rp18pw2u5e2" path="res://assets/profile_pics/ila.png" id="2_i5slu"]
+[ext_resource type="FontFile" uid="uid://dp11wwd8sqwid" path="res://fonts/manga_temple/mangatb.ttf" id="3_etwnq"]
+[ext_resource type="FontFile" uid="uid://dhdehw4c3i2ux" path="res://fonts/hey_comic/Hey Comic.otf" id="4_w8g7w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5slu"]
+bg_color = Color(0.2627451, 0.28627452, 0.4509804, 0.49019608)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.7882353, 0.7882353, 0.8235294, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+shadow_size = 4
+shadow_offset = Vector2(0, 5)
 
 [node name="DialogueUI" type="CanvasLayer" unique_id=38181865]
 
@@ -12,21 +29,23 @@ offset_top = 500.0
 offset_right = 1396.0
 offset_bottom = 670.0
 scale = Vector2(0.65196556, 0.9474996)
+theme_override_styles/panel = SubResource("StyleBoxFlat_i5slu")
 script = ExtResource("1_0e2x4")
-ashi_portrait = ExtResource("2_i5slu")
+ila_portrait = ExtResource("2_i5slu")
 
 [node name="MarginContainer" type="MarginContainer" parent="DialogBox" unique_id=1049442398]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 14
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DialogBox/MarginContainer" unique_id=1184356803]
 layout_mode = 2
+theme_override_constants/separation = 50
 
 [node name="Portrait" type="TextureRect" parent="DialogBox/MarginContainer/HBoxContainer" unique_id=996483597]
-custom_minimum_size = Vector2(130, 130)
+custom_minimum_size = Vector2(200, 130)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 6
@@ -37,12 +56,23 @@ size_flags_horizontal = 3
 
 [node name="NameLabel" type="Label" parent="DialogBox/MarginContainer/HBoxContainer/TextColumn" unique_id=1307579703]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8693776, 0.67335933, 0.91154206, 1)
+theme_override_fonts/font = ExtResource("3_etwnq")
+theme_override_font_sizes/font_size = 20
 
 [node name="DialogueLabel" type="Label" parent="DialogBox/MarginContainer/HBoxContainer/TextColumn" unique_id=1438212370]
 layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_w8g7w")
+theme_override_font_sizes/font_size = 25
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="ContinueLabel" type="Label" parent="DialogBox/MarginContainer/HBoxContainer/TextColumn" unique_id=2053096846]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.5729883, 0.5729883, 0.5729883, 1)
 text = "PRESS ENTER"
+horizontal_alignment = 2
