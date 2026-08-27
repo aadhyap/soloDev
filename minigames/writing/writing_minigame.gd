@@ -1,7 +1,7 @@
 extends Control
 
-@onready var story_label = $VBoxContainer/StoryLabel
-@onready var progress_bar = $VBoxContainer/ProgressBar
+@onready var story_label = $DocumentPanel/MarginContainer/VBoxContainer/WritingRow/StoryLabel
+@onready var progress_bar = $ProgressBar
 
 var target_text := "The city was quiet until the lights went out."
 var typed_count := 0
