@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://1m66htvxa4i0"]
 
 [ext_resource type="Script" uid="uid://eehqod36o3j4" path="res://dashboardUI/DialogueSystem/dialog_box.gd" id="1_0e2x4"]
+[ext_resource type="Texture2D" uid="uid://u8sl7w8de7jo" path="res://assets/profile_pics/Drippzy.png" id="2_i5slu"]
 
 [node name="DialogueUI" type="CanvasLayer" unique_id=38181865]
 
@@ -12,6 +13,7 @@ offset_right = 1396.0
 offset_bottom = 670.0
 scale = Vector2(0.65196556, 0.9474996)
 script = ExtResource("1_0e2x4")
+ashi_portrait = ExtResource("2_i5slu")
 
 [node name="MarginContainer" type="MarginContainer" parent="DialogBox" unique_id=1049442398]
 layout_mode = 2

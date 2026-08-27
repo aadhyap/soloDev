@@ -16,6 +16,8 @@ signal finished
 @onready var continue_label: Label = \
 	$MarginContainer/HBoxContainer/TextColumn/ContinueLabel
 
+@export var ashi_portrait: Texture2D
+
 
 var lines: Array = []
 var line_index: int = 0
@@ -47,9 +49,26 @@ func show_current_line() -> void:
 
 	var line = lines[line_index]
 
-	name_label.text = line["speaker"]
-	dialogue_label.text = line["text"]
+	var speaker_name: String = line["speaker"]
+	var text: String = line["text"]
+
+	name_label.text = speaker_name
+	dialogue_label.text = text
 	continue_label.text = "PRESS ENTER"
+
+	portrait.texture = get_portrait_for_speaker(speaker_name)
+	
+func get_portrait_for_speaker(speaker_name: String) -> Texture2D:
+	if speaker_name.to_lower() == "ashi":
+		
+		return ashi_portrait
+
+	for member in GameState.team_members:
+		
+		if member.id == speaker_name.to_lower():
+			return member.profile_picture
+
+	return null
 
 
 func next_line() -> void:

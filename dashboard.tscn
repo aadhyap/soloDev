@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://cay6hmvpcvb8s" path="res://membersData/drippzy.tres" id="3_bc6a6"]
 [ext_resource type="Resource" uid="uid://o0we86nc1eil" path="res://membersData/rimbo.tres" id="4_1w0xl"]
 [ext_resource type="Resource" uid="uid://cpyabxrjjyt0e" path="res://membersData/riener.tres" id="4_bw4wq"]
-[ext_resource type="Resource" uid="uid://cfgxwnqiplcf3" path="res://membersData/risa.tres" id="5_bw4wq"]
+[ext_resource type="Resource" uid="uid://cfgxwnqiplcf3" path="res://membersData/rizza.tres" id="5_bw4wq"]
 
 [node name="Dashboard" type="Control" unique_id=2072022460]
 custom_maximum_size = Vector2(0, 0)
@@ -44,7 +44,7 @@ layout_mode = 2
 size_flags_vertical = 3
 member = ExtResource("3_bc6a6")
 
-[node name="risa" parent="CenterContainer/VBoxContainer" unique_id=1422882137 instance=ExtResource("1_23vhs")]
+[node name="rizza" parent="CenterContainer/VBoxContainer" unique_id=1422882137 instance=ExtResource("1_23vhs")]
 layout_mode = 2
 size_flags_vertical = 3
 member = ExtResource("5_bw4wq")

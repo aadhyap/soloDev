@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_nvw8q")
-id = "risa"
+id = "rizza"
 display_name = "Rizza 📝"
 role_name = "Writer"
 blurb = "Almost Done"

@@ -2,7 +2,7 @@ extends Node
 
 var team_members: Array[TeamMember] = [
 	preload("res://membersData/drippzy.tres"),
-	preload("res://membersData/risa.tres"),
+	preload("res://membersData/rizza.tres"),
 	preload("res://membersData/rimbo.tres"),
 	preload("res://membersData/jamal.tres")
 ]
