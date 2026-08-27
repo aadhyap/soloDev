@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="TeamMember" format=3 uid="uid://cpyabxrjjyt0e"]
 
 [ext_resource type="Script" uid="uid://dfmu1xgnj2kwp" path="res://dashboardUI/team_member.gd" id="1_3p5ys"]
+[ext_resource type="Texture2D" uid="uid://cty3bmen7bugr" path="res://assets/profile_pics/Rain.PNG" id="1_f45bm"]
 
 [resource]
 script = ExtResource("1_3p5ys")
 id = "riener"
-display_name = "Riener"
+display_name = "Rain💻"
 role_name = "Programming"
 blurb = "total code wizard"
+profile_picture = ExtResource("1_f45bm")
 metadata/_custom_type_script = "uid://dfmu1xgnj2kwp"

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SoloDev"
-run/main_scene="uid://cp3efq5ovbg3o"
+run/main_scene="uid://b7takqqyo45po"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -2,11 +2,20 @@ extends PanelContainer
 
 @export var member: TeamMember
 
-@onready var name_label = $VBoxContainer/TopRow/NameLabel
-@onready var role_label = $VBoxContainer/RoleLabel
-@onready var progress_bar = $VBoxContainer/ProgressBar
-@onready var blurb_label = $VBoxContainer/BlurbLabel
-@onready var open_button = $VBoxContainer/TopRow/OpenButton
+@onready var portrait: TextureRect = \
+	$MarginContainer/HBoxContainer/Portrait
+
+@onready var name_label: Label = \
+	$MarginContainer/HBoxContainer/InfoColumn/NameLabel
+
+@onready var role_label: Label = \
+	$MarginContainer/HBoxContainer/InfoColumn/RoleLabel
+
+@onready var progress_bar: ProgressBar = \
+	$MarginContainer/HBoxContainer/InfoColumn/ProgressBar
+
+@onready var open_button: Button = \
+	$MarginContainer/HBoxContainer/OpenButton
 
 
 func _ready():
@@ -19,39 +28,25 @@ func refresh():
 
 	name_label.text = member.display_name
 	role_label.text = member.role_name
+	portrait.texture = member.profile_picture
+	var task = GameState.get_next_task_for_member(member.id)
 
-	var next_task = GameState.get_next_task_for_member(member.id)
-
-	# All of this member's tasks are finished
-	if next_task == null:
+	if task == null:
 		progress_bar.value = 100
-		blurb_label.text = "DONE"
-		open_button.disabled = true
 		open_button.text = "COMPLETE"
+		open_button.disabled = true
 		return
 
-	# Player just helped this person
-	if not GameState.can_help_member(member.id):
-		blurb_label.text = "aight stop doing all the work bro"
-		open_button.disabled = true
-		open_button.text = "LET ME WORK"
-	else:
-		blurb_label.text = member.blurb
-		open_button.disabled = false
+	progress_bar.value = task.progress
+
+	if GameState.can_help_member(member.id):
 		open_button.text = "CHECK WORK"
-
-	progress_bar.value = next_task.progress
-
-
-func open_task(task: GameTask):
-	if task.role_name == "Art":
-		get_tree().change_scene_to_file("res://minigames/art_minigame.tscn")
-
-	elif task.role_name == "Writing":
-		get_tree().change_scene_to_file("res://minigames/writing_minigame.tscn")
-
-	elif task.role_name == "Programming":
-		get_tree().change_scene_to_file("res://minigames/programming_minigame.tscn")
+		open_button.disabled = false
+	else:
+		open_button.text = "LET ME WORK"
+		open_button.disabled = true
+		
+		
 
 
 func _on_open_button_pressed():
@@ -64,9 +59,22 @@ func _on_open_button_pressed():
 	var task = GameState.get_next_task_for_member(member.id)
 
 	if task == null:
-		print("NO TASKS LEFT FOR ", member.display_name)
 		return
 
 	GameState.current_task = task
 
-	open_task(task)
+	match task.role_name:
+		"Art":
+			get_tree().change_scene_to_file(
+				"res://minigames/art_minigame.tscn"
+			)
+
+		"Writing":
+			get_tree().change_scene_to_file(
+				"res://minigames/writing_minigame.tscn"
+			)
+
+		"Programming":
+			get_tree().change_scene_to_file(
+				"res://minigames/programming_minigame.tscn"
+			)

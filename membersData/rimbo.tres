@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="TeamMember" format=3 uid="uid://o0we86nc1eil"]
 
+[ext_resource type="Texture2D" uid="uid://c6gp6f3g8woal" path="res://assets/profile_pics/Rimbo.png" id="1_3lve1"]
 [ext_resource type="Script" uid="uid://dfmu1xgnj2kwp" path="res://dashboardUI/team_member.gd" id="1_g240r"]
 
 [resource]
 script = ExtResource("1_g240r")
 id = "rimbo"
-display_name = "Rimbo"
+display_name = "Rimbo 🎵"
 role_name = "Music"
 blurb = "Im cooking rn"
+profile_picture = ExtResource("1_3lve1")
 claimed_progress = 20.0
 metadata/_custom_type_script = "uid://dfmu1xgnj2kwp"

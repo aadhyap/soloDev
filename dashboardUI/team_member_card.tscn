@@ -1,37 +1,128 @@
 [gd_scene format=3 uid="uid://b6t2cs0kx4b0v"]
 
 [ext_resource type="Script" uid="uid://cdsep8fbtogq8" path="res://dashboardUI/team_member_card.gd" id="1_6a4j5"]
+[ext_resource type="FontFile" uid="uid://dp11wwd8sqwid" path="res://fonts/manga_temple/mangatb.ttf" id="2_bn8un"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1w0xl"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.7882353, 0.7882353, 0.8235294, 1)
+corner_detail = 3
+shadow_color = Color(0.37489036, 0.37481734, 0.42436975, 1)
+shadow_size = 5
+anti_aliasing_size = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oap2w"]
+bg_color = Color(0.96862745, 0.96862745, 0.96862745, 1)
+border_color = Color(0.7882353, 0.7882353, 0.8235294, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0.46666667, 0.46666667, 0.52156866, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bn8un"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.7882353, 0.7882353, 0.8235294, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0.46666667, 0.46666667, 0.52156866, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4uhe"]
+bg_color = Color(0.96862745, 0.96862745, 0.96862745, 1)
+border_color = Color(0.7882353, 0.7882353, 0.8235294, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0.46666667, 0.46666667, 0.52156866, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1nmh6"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.7882353, 0.7882353, 0.8235294, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0.46666667, 0.46666667, 0.52156866, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 3)
 
 [node name="TeamMemberCard" type="PanelContainer" unique_id=59710976]
+custom_minimum_size = Vector2(0, 60)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 257.0
+offset_top = 65.0
+offset_right = -269.0
+offset_bottom = -523.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1w0xl")
 script = ExtResource("1_6a4j5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=961487736]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1846980007]
 layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 5
 
-[node name="TopRow" type="HBoxContainer" parent="VBoxContainer" unique_id=1368975007]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1009174452]
 layout_mode = 2
+theme_override_constants/separation = 10
 
-[node name="NameLabel" type="Label" parent="VBoxContainer/TopRow" unique_id=1939308817]
+[node name="Portrait" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=481567866]
+custom_minimum_size = Vector2(150, 100)
+clip_contents = true
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InfoColumn" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=818419282]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="OpenButton" type="Button" parent="VBoxContainer/TopRow" unique_id=127814322]
-custom_minimum_size = Vector2(130, 35)
+[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer/InfoColumn" unique_id=435418563]
 layout_mode = 2
-text = "CHECK WORK"
+theme_override_colors/font_color = Color(0.2627451, 0.33333334, 0.39607844, 1)
+theme_override_fonts/font = ExtResource("2_bn8un")
+theme_override_font_sizes/font_size = 20
 
-[node name="RoleLabel" type="Label" parent="VBoxContainer" unique_id=337440232]
+[node name="RoleLabel" type="Label" parent="MarginContainer/HBoxContainer/InfoColumn" unique_id=456959899]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.09019608, 0.12156863, 0.13333334, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="NameRoleRow" type="HBoxContainer" parent="MarginContainer/HBoxContainer/InfoColumn" unique_id=1524114247]
 layout_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer" unique_id=1822637808]
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/InfoColumn" unique_id=862927728]
+custom_minimum_size = Vector2(0, 14)
 layout_mode = 2
 
-[node name="BlurbLabel" type="Label" parent="VBoxContainer" unique_id=603738582]
+[node name="OpenButton" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1263184256]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.22745098, 1)
+theme_override_colors/font_pressed_color = Color(0.2, 0.2, 0.22745098, 1)
+theme_override_colors/font_hover_color = Color(0.13333334, 0.13333334, 0.15686275, 1)
+theme_override_colors/font_disabled_color = Color(0.53333336, 0.53333336, 0.5647059, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_oap2w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bn8un")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_b4uhe")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_1nmh6")
 
-[connection signal="pressed" from="VBoxContainer/TopRow/OpenButton" to="." method="_on_open_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/OpenButton" to="." method="_on_open_button_pressed"]

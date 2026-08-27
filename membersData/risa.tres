@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="TeamMember" format=3 uid="uid://cfgxwnqiplcf3"]
 
+[ext_resource type="Texture2D" uid="uid://b3r1qa8upwctf" path="res://assets/profile_pics/Rizza.PNG" id="1_2rumo"]
 [ext_resource type="Script" uid="uid://dfmu1xgnj2kwp" path="res://dashboardUI/team_member.gd" id="1_nvw8q"]
 
 [resource]
 script = ExtResource("1_nvw8q")
 id = "risa"
-display_name = "Risa"
+display_name = "Rizza 📝"
 role_name = "Writer"
 blurb = "Almost Done"
+profile_picture = ExtResource("1_2rumo")
 claimed_progress = 85.0
 metadata/_custom_type_script = "uid://dfmu1xgnj2kwp"
