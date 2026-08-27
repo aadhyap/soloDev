@@ -16,7 +16,7 @@ signal finished
 @onready var continue_label: Label = \
 	$MarginContainer/HBoxContainer/TextColumn/ContinueLabel
 
-@export var ila_portrait: Texture2D
+const ila_portrait: Texture2D = preload("res://assets/profile_pics/ila.png")
 
 
 var lines: Array = []
@@ -25,7 +25,7 @@ var active: bool = false
 
 
 func _ready() -> void:
-	start(test_dialogue_id)
+	hide()
 
 
 func start(dialogue_id: String) -> void:
@@ -63,7 +63,7 @@ func get_portrait_for_speaker(speaker_name: String) -> Texture2D:
 		return ila_portrait
 
 	for member in GameState.team_members:
-		if member.id == speaker_name.to_lower():
+		if member.display_name.to_lower() == speaker_name.to_lower():
 			return member.profile_picture
 
 	return null

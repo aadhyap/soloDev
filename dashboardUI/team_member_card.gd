@@ -47,22 +47,7 @@ func refresh():
 		open_button.disabled = true
 		
 		
-
-
-func _on_open_button_pressed():
-	if member == null:
-		return
-
-	if not GameState.can_help_member(member.id):
-		return
-
-	var task = GameState.get_next_task_for_member(member.id)
-
-	if task == null:
-		return
-
-	GameState.current_task = task
-
+func open_task(task: GameTask) -> void:
 	match task.role_name:
 		"Art":
 			get_tree().change_scene_to_file(
@@ -78,3 +63,30 @@ func _on_open_button_pressed():
 			get_tree().change_scene_to_file(
 				"res://minigames/programming_minigame.tscn"
 			)
+		"Music":
+			# replace with your actual scene path later
+			print("Music minigame not added yet")
+
+func _on_open_button_pressed():
+	if member == null:
+		return
+
+	if not GameState.can_help_member(member.id):
+		return
+
+	var task = GameState.get_next_task_for_member(member.id)
+
+	if task == null:
+		return
+
+	GameState.current_task = task
+
+	var dialogue_id = member.id + "_first_check"
+
+	# Tell the NEXT scene that it should show this dialogue.
+	if not GameState.has_seen_dialogue(dialogue_id):
+		GameState.pending_dialogue = dialogue_id
+	else:
+		GameState.pending_dialogue = ""
+
+	open_task(task)

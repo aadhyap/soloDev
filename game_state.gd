@@ -17,6 +17,16 @@ var tasks: Array[GameTask] = [
 
 var current_task: GameTask = null
 var last_helped_member_id: String = ""
+var pending_dialogue: String = ""
+var seen_dialogues: Dictionary = {}
+
+
+func has_seen_dialogue(dialogue_id: String) -> bool:
+	return seen_dialogues.get(dialogue_id, false)
+
+
+func mark_dialogue_seen(dialogue_id: String) -> void:
+	seen_dialogues[dialogue_id] = true
 
 
 func get_next_task_for_member(member_id: String) -> GameTask:

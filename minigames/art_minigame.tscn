@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c51i46p75c788"]
 
 [ext_resource type="Script" uid="uid://bqmi88655pwan" path="res://minigames/art/art_minigame.gd" id="1_usxal"]
+[ext_resource type="PackedScene" uid="uid://1m66htvxa4i0" path="res://dashboardUI/DialogueSystem/dialogue_box.tscn" id="2_d1sqi"]
 
 [node name="ArtMinigame" type="Control" unique_id=1680931956]
 layout_mode = 3
@@ -39,5 +40,7 @@ offset_top = 120.0
 offset_right = 500.0
 offset_bottom = 170.0
 text = "BACK"
+
+[node name="DialogueUI" parent="." unique_id=38181865 instance=ExtResource("2_d1sqi")]
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

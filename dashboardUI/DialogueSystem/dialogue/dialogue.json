@@ -5,35 +5,19 @@
 	  "text": "bruh what am I looking at"
 	},
 	{
-	  "speaker": "Rizza",
+	  "speaker": "Risa",
 	  "text": "Uhh... so this is all I got for the story."
-	},
-	{
-	  "speaker": "Ila",
-	  "text": "You wrote 'The.'"
-	},
-	{
-	  "speaker": "Rizza",
-	  "text": "I was getting there."
 	}
   ],
 
   "drippzy_first_check": [
 	{
-	  "speaker": "Ashi",
-	  "text": "Is that the character?"
+	  "speaker": "Ila",
+	  "text": "Is that supposed to be the player?"
 	},
 	{
 	  "speaker": "Drippzy",
 	  "text": "Yeah."
-	},
-	{
-	  "speaker": "Ashi",
-	  "text": "It's a stick figure."
-	},
-	{
-	  "speaker": "Drippzy",
-	  "text": "It's concept art."
 	}
   ]
 }

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://1m66htvxa4i0"]
 
 [ext_resource type="Script" uid="uid://eehqod36o3j4" path="res://dashboardUI/DialogueSystem/dialog_box.gd" id="1_0e2x4"]
-[ext_resource type="Texture2D" uid="uid://b4rp18pw2u5e2" path="res://assets/profile_pics/ila.png" id="2_i5slu"]
 [ext_resource type="FontFile" uid="uid://dp11wwd8sqwid" path="res://fonts/manga_temple/mangatb.ttf" id="3_etwnq"]
 [ext_resource type="FontFile" uid="uid://dhdehw4c3i2ux" path="res://fonts/hey_comic/Hey Comic.otf" id="4_w8g7w"]
 
@@ -22,7 +21,7 @@ shadow_offset = Vector2(0, 5)
 
 [node name="DialogueUI" type="CanvasLayer" unique_id=38181865]
 
-[node name="DialogBox" type="PanelContainer" parent="." unique_id=1178802324]
+[node name="DialogBox" type="PanelContainer" parent="." unique_id=1178802324 groups=["dialogue_box"]]
 custom_minimum_size = Vector2(1200, 170)
 offset_left = 196.0
 offset_top = 500.0
@@ -31,7 +30,6 @@ offset_bottom = 670.0
 scale = Vector2(0.65196556, 0.9474996)
 theme_override_styles/panel = SubResource("StyleBoxFlat_i5slu")
 script = ExtResource("1_0e2x4")
-ila_portrait = ExtResource("2_i5slu")
 
 [node name="MarginContainer" type="MarginContainer" parent="DialogBox" unique_id=1049442398]
 layout_mode = 2
