@@ -5,6 +5,7 @@ extends Control
 
 var target_text := "The city was quiet until the lights went out."
 var typed_count := 0
+var dialogue_active := false
 
 
 func _ready():
@@ -18,13 +19,15 @@ func _ready():
 		print("WRITING TASK HAS NO WRITING DATA")
 		return
 
-	# Removes accidental spaces/newlines at the start or end
 	target_text = data.prompt.strip_edges()
 
 	typed_count = 0
 	progress_bar.value = 0
 
+	# If there's first-check dialogue, don't show the writing yet
 	if GameState.pending_dialogue != "":
+		story_label.hide()
+
 		var dialogue_box = get_tree().get_first_node_in_group("dialogue_box")
 
 		if dialogue_box:
@@ -34,6 +37,12 @@ func _ready():
 			GameState.mark_dialogue_seen(dialogue_id)
 
 			dialogue_box.start(dialogue_id)
+
+			# Wait until the player finishes the dialogue
+			await dialogue_box.finished
+
+		# NOW reveal the writing prompt
+		story_label.show()
 
 	update_story_display()
 
