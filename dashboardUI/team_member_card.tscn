@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdsep8fbtogq8" path="res://dashboardUI/team_member_card.gd" id="1_6a4j5"]
 [ext_resource type="FontFile" uid="uid://dp11wwd8sqwid" path="res://fonts/manga_temple/mangatb.ttf" id="2_bn8un"]
+[ext_resource type="FontFile" uid="uid://dhdehw4c3i2ux" path="res://fonts/hey_comic/Hey Comic.otf" id="3_b4uhe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1w0xl"]
 bg_color = Color(1, 1, 1, 1)
@@ -120,6 +121,7 @@ theme_override_colors/font_color = Color(0.2, 0.2, 0.22745098, 1)
 theme_override_colors/font_pressed_color = Color(0.2, 0.2, 0.22745098, 1)
 theme_override_colors/font_hover_color = Color(0.13333334, 0.13333334, 0.15686275, 1)
 theme_override_colors/font_disabled_color = Color(0.53333336, 0.53333336, 0.5647059, 1)
+theme_override_fonts/font = ExtResource("3_b4uhe")
 theme_override_styles/normal = SubResource("StyleBoxFlat_oap2w")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bn8un")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_b4uhe")

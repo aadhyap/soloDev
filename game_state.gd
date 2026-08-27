@@ -8,6 +8,7 @@ var team_members: Array[TeamMember] = [
 ]
 
 var tasks: Array[GameTask] = [
+
 	preload("res://gameTasks/drawing1.tres"),
 	preload("res://gameTasks/drawing2.tres"),
 	preload("res://gameTasks/writing1.tres"),

@@ -2,22 +2,18 @@
 
 [ext_resource type="Script" uid="uid://cg8xfoam2u1kk" path="res://game_task.gd" id="1_6msu2"]
 [ext_resource type="Script" uid="uid://c6gqos06xg4bp" path="res://minigames/art/art_task_data.gd" id="2_w3124"]
+[ext_resource type="Texture2D" uid="uid://dajnkoyp8g3q7" path="res://assets/pics/tile.png" id="3_nuboh"]
 
 [sub_resource type="Resource" id="Resource_vkaai"]
 script = ExtResource("2_w3124")
-pattern = "
-01010
-01111
-11011
-01110
-00100
-"
+sprite = ExtResource("3_nuboh")
+level_name = "Tile"
 metadata/_custom_type_script = "uid://c6gqos06xg4bp"
 
 [resource]
 script = ExtResource("1_6msu2")
-id = "player"
-display_name = "Player"
+id = "tilemap"
+display_name = "Tile"
 assigned_member_id = "drippzy"
 role_name = "Art"
 progress = 50.0

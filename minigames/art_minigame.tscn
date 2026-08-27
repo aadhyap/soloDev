@@ -2,6 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bqmi88655pwan" path="res://minigames/art/art_minigame.gd" id="1_usxal"]
 [ext_resource type="PackedScene" uid="uid://1m66htvxa4i0" path="res://dashboardUI/DialogueSystem/dialogue_box.tscn" id="2_d1sqi"]
+[ext_resource type="FontFile" uid="uid://dhdehw4c3i2ux" path="res://fonts/hey_comic/Hey Comic.otf" id="2_sb58u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb58u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4bpq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cehif"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eniue"]
 
 [node name="ArtMinigame" type="Control" unique_id=1680931956]
 layout_mode = 3
@@ -16,31 +26,100 @@ script = ExtResource("1_usxal")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(29.459063, 18.045456)
+color = Color(0.1254902, 0.12941177, 0.16862746, 1)
+
+[node name="CursorColor" type="Panel" parent="." unique_id=711966631]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="TitleLabel" type="Label" parent="." unique_id=592995840]
 layout_mode = 0
-offset_left = 350.0
-offset_top = 80.0
-offset_right = 490.0
-offset_bottom = 103.0
+offset_top = 20.0
+offset_right = 1160.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("2_sb58u")
+theme_override_font_sizes/font_size = 30
 text = "FIX DRIPPZY'S ART"
+horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=610806553]
 layout_mode = 0
-offset_left = 350.0
-offset_top = 150.0
-offset_right = 390.0
-offset_bottom = 190.0
+offset_left = 250.0
+offset_top = 100.0
+offset_right = 290.0
+offset_bottom = 140.0
 columns = 5
+
+[node name="PalettePanel" type="PanelContainer" parent="." unique_id=670288936]
+custom_minimum_size = Vector2(140, 320)
+layout_mode = 0
+offset_left = 900.0
+offset_top = 200.0
+offset_right = 1040.0
+offset_bottom = 520.0
+
+[node name="PaletteContainer" type="VBoxContainer" parent="PalettePanel" unique_id=1133279821]
+layout_mode = 2
 
 [node name="BackButton" type="Button" parent="." unique_id=119994765]
 layout_mode = 0
-offset_left = 350.0
-offset_top = 120.0
-offset_right = 500.0
-offset_bottom = 170.0
+offset_left = 20.0
+offset_top = 600.0
+offset_right = 170.0
+offset_bottom = 650.0
 text = "BACK"
+
+[node name="BrushPanel" type="PanelContainer" parent="." unique_id=464797327]
+custom_minimum_size = Vector2(240, 40)
+layout_mode = 0
+offset_left = 850.0
+offset_top = 100.0
+offset_right = 1090.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sb58u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BrushPanel" unique_id=1824414594]
+layout_mode = 2
+
+[node name="BrushLabel" type="Label" parent="BrushPanel/VBoxContainer" unique_id=966688334]
+layout_mode = 2
+text = "BRUSH SIZE"
+horizontal_alignment = 1
+
+[node name="BrushContainer" type="Control" parent="BrushPanel/VBoxContainer" unique_id=947612220]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Brush1Button" type="Button" parent="BrushPanel/VBoxContainer/BrushContainer" unique_id=1133379008]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_t4bpq")
+
+[node name="Brush3Button" type="Button" parent="BrushPanel/VBoxContainer/BrushContainer" unique_id=564972063]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 0
+offset_left = 65.0
+offset_right = 110.0
+offset_bottom = 45.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_cehif")
+
+[node name="Brush5Button" type="Button" parent="BrushPanel/VBoxContainer/BrushContainer" unique_id=1381354110]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 140.0
+offset_right = 200.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_eniue")
 
 [node name="DialogueUI" parent="." unique_id=38181865 instance=ExtResource("2_d1sqi")]
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="BrushPanel/VBoxContainer/BrushContainer/Brush1Button" to="." method="_on_brush_1_button_pressed"]
+[connection signal="pressed" from="BrushPanel/VBoxContainer/BrushContainer/Brush3Button" to="." method="_on_brush_3_button_pressed"]
+[connection signal="pressed" from="BrushPanel/VBoxContainer/BrushContainer/Brush5Button" to="." method="_on_brush_5_button_pressed"]

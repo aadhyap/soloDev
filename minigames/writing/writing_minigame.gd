@@ -18,11 +18,12 @@ func _ready():
 		print("WRITING TASK HAS NO WRITING DATA")
 		return
 
-	target_text = data.prompt
+	# Removes accidental spaces/newlines at the start or end
+	target_text = data.prompt.strip_edges()
 
 	typed_count = 0
 	progress_bar.value = 0
-	
+
 	if GameState.pending_dialogue != "":
 		var dialogue_box = get_tree().get_first_node_in_group("dialogue_box")
 
@@ -56,17 +57,18 @@ func _input(event):
 	var pressed_character = String.chr(event.unicode)
 	var expected_character = target_text[typed_count]
 
-	# Wrong letter = do absolutely nothing
 	if pressed_character != expected_character:
 		return
 
 	typed_count += 1
 
 	update_story_display()
-	update_progress()
 
 	if typed_count >= target_text.length():
+		progress_bar.value = 100
 		writing_complete()
+	else:
+		update_progress()
 
 
 func update_story_display():
@@ -74,29 +76,35 @@ func update_story_display():
 	var remaining_text = target_text.substr(typed_count)
 
 	story_label.text = (
-		"[color=white]" +
+		"[color=#222222]" +
 		completed_text +
 		"[/color]" +
-		"[color=#666666]" +
+		"[color=#AAAAAA]" +
 		remaining_text +
 		"[/color]"
 	)
 
 
 func update_progress():
-	progress_bar.value = (
+	var percent = (
 		float(typed_count) /
 		float(target_text.length())
 	) * 100.0
 
+	progress_bar.value = percent
 
 func writing_complete():
 	GameState.complete_current_task()
 	GameState.current_task = null
 
-	get_tree().change_scene_to_file("res://dashboard.tscn")
+	get_tree().change_scene_to_file(
+		"res://dashboard.tscn"
+	)
 
 
 func _on_back_button_pressed():
 	GameState.current_task = null
-	get_tree().change_scene_to_file("res://dashboard.tscn")
+
+	get_tree().change_scene_to_file(
+		"res://dashboard.tscn"
+	)

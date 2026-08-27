@@ -1,16 +1,19 @@
 [gd_resource type="Resource" script_class="GameTask" format=3 uid="uid://bwislkh5a6gnt"]
 
 [ext_resource type="Script" uid="uid://cg8xfoam2u1kk" path="res://game_task.gd" id="1_osqsl"]
-[ext_resource type="Script" uid="uid://c6gqos06xg4bp" path="res://minigames/art/art_task_data.gd" id="2_c6uwl"]
+[ext_resource type="Script" uid="uid://c6gqos06xg4bp" path="res://minigames/art/art_task_data.gd" id="2_ayij5"]
+[ext_resource type="Texture2D" uid="uid://byigrsj7oh7a8" path="res://assets/pics/poop.png" id="3_7lpln"]
 
 [sub_resource type="Resource" id="Resource_vkaai"]
-script = ExtResource("2_c6uwl")
+script = ExtResource("2_ayij5")
+sprite = ExtResource("3_7lpln")
+level_name = "Level: Player"
 metadata/_custom_type_script = "uid://c6gqos06xg4bp"
 
 [resource]
 script = ExtResource("1_osqsl")
 id = "player"
-display_name = "Player"
+display_name = "Drippzy"
 assigned_member_id = "drippzy"
 role_name = "Art"
 task_data = SubResource("Resource_vkaai")
