@@ -57,5 +57,15 @@ theme_override_fonts/font = ExtResource("2_fptci")
 text = "Back
 "
 
+[node name="RestartButton" type="Button" parent="." unique_id=1040001454]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 580.0
+offset_right = 680.0
+offset_bottom = 620.0
+scale = Vector2(1, 1.0042739)
+text = "RESTART"
+
 [connection signal="pressed" from="TestButton" to="." method="_on_test_button_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

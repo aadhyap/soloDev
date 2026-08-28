@@ -16,6 +16,6 @@ id = "tilemap"
 display_name = "Tile"
 assigned_member_id = "drippzy"
 role_name = "Art"
-progress = 50.0
+progress = 66.0
 task_data = SubResource("Resource_vkaai")
 metadata/_custom_type_script = "uid://cg8xfoam2u1kk"

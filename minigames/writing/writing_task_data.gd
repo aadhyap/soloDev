@@ -3,3 +3,4 @@ class_name WritingTaskData
 extends Resource
 
 @export_multiline var prompt: String
+@export var Title: String

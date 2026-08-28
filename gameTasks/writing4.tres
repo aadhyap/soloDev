@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="GameTask" format=3 uid="uid://cnkuswd8wfa7y"]
+
+[ext_resource type="Script" uid="uid://cg8xfoam2u1kk" path="res://game_task.gd" id="1_g85u8"]
+[ext_resource type="Script" uid="uid://c2lhjfp50v5kx" path="res://minigames/writing/writing_task_data.gd" id="2_ukhej"]
+
+[sub_resource type="Resource" id="Resource_w3124"]
+script = ExtResource("2_ukhej")
+prompt = "ruler of Goop was once poop. Did he know there existed a society of Poop? The Poops hated Goops and hated that the ruler of Goop was a poop himself! PoopGoops’ father is the leader of Poop and finds out about his son. However Goop has to reject them as he is a Goop now. The people of Poop are not happy. A war…soon breaks out."
+Title = "Climax"
+metadata/_custom_type_script = "uid://c2lhjfp50v5kx"
+
+[resource]
+script = ExtResource("1_g85u8")
+id = "intro"
+display_name = "Intro"
+assigned_member_id = "rizza"
+role_name = "Writing"
+progress = 50.0
+task_data = SubResource("Resource_w3124")
+metadata/_custom_type_script = "uid://cg8xfoam2u1kk"

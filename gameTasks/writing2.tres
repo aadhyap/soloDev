@@ -5,7 +5,8 @@
 
 [sub_resource type="Resource" id="Resource_w3124"]
 script = ExtResource("2_jj70l")
-prompt = "loves chicken and rice"
+prompt = "Poopgoop was not accepted by the Republic of Goop. The goop people would shoot its goop and it would hurt poop. Although Poopgoop had a superpower. Poopgoop was able to comflauge to any color to disguise as a goop but only for a few seconds in order to not take damage from a Goop. "
+Title = "Mechanic"
 metadata/_custom_type_script = "uid://c2lhjfp50v5kx"
 
 [resource]

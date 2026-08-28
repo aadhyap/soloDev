@@ -2,6 +2,8 @@ extends Control
 
 @onready var story_label = $DocumentPanel/MarginContainer/VBoxContainer/WritingRow/StoryLabel
 @onready var progress_bar = $ProgressBar
+@onready var title_label = $DocumentPanel/MarginContainer/VBoxContainer/TitleLabel2
+
 
 var target_text := "The city was quiet until the lights went out."
 var typed_count := 0
@@ -20,6 +22,7 @@ func _ready():
 		return
 
 	target_text = data.prompt.strip_edges()
+	title_label.text = data.Title
 
 	typed_count = 0
 	progress_bar.value = 0
@@ -81,18 +84,28 @@ func _input(event):
 
 
 func update_story_display():
-	var completed_text = target_text.substr(0, typed_count)
-	var remaining_text = target_text.substr(typed_count)
+	var completed_text := target_text.substr(0, typed_count)
+
+	var preview_text := ""
+	var letters_found := 0
+	var index := typed_count
+
+	while index < target_text.length() and letters_found < 2:
+		var character := target_text[index]
+
+		preview_text += character
+
+		# Only letters/numbers count toward the 2-character preview.
+		# Spaces and punctuation do NOT count.
+		if character != " " and character not in [".", ",", "!", "?", "'", "\"", ":", ";", "-"]:
+			letters_found += 1
+
+		index += 1
 
 	story_label.text = (
-		"[color=#222222]" +
-		completed_text +
-		"[/color]" +
-		"[color=#AAAAAA]" +
-		remaining_text +
-		"[/color]"
+		"[color=#222222]" + completed_text + "[/color]" +
+		"[color=#AAAAAA]" + preview_text + "[/color]"
 	)
-
 
 func update_progress():
 	var percent = (

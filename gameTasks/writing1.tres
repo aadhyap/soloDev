@@ -5,8 +5,8 @@
 
 [sub_resource type="Resource" id="Resource_w3124"]
 script = ExtResource("2_sevok")
-prompt = "poo goop
-"
+prompt = "Dog took a fat dump and thus was born poop. Unfortunately, poop was born in a world of goop of many different colors. Poop disguised itself as goop but it was not goop, it was poop. Thus the name Poopgoop."
+Title = "Intro"
 metadata/_custom_type_script = "uid://c2lhjfp50v5kx"
 
 [resource]

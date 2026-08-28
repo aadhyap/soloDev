@@ -1,0 +1,138 @@
+[gd_resource type="Resource" script_class="GameTask" format=3 uid="uid://d18pfxa5klb6"]
+
+[ext_resource type="Script" uid="uid://cg8xfoam2u1kk" path="res://game_task.gd" id="1_bu5d5"]
+[ext_resource type="Script" uid="uid://c30pvob3wui1m" path="res://minigames/programming_mini_game/programming_node_data.gd" id="2_00h1x"]
+[ext_resource type="Script" uid="uid://dgt6jrijjiycu" path="res://minigames/programming_mini_game/programming_port_data.gd" id="3_0qwno"]
+[ext_resource type="Script" uid="uid://bknkelw6pi8cp" path="res://minigames/programming_mini_game/programming_task_data.gd" id="4_gvlbj"]
+
+[sub_resource type="Resource" id="Resource_laj7n"]
+script = ExtResource("3_0qwno")
+connection_key = "top0"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_e6hb8"]
+script = ExtResource("2_00h1x")
+id = "run"
+title = "RUN"
+start_position = Vector2(100, 250)
+outputs = Array[ExtResource("3_0qwno")]([SubResource("Resource_laj7n")])
+metadata/_custom_type_script = "uid://c30pvob3wui1m"
+
+[sub_resource type="Resource" id="Resource_xniyy"]
+script = ExtResource("3_0qwno")
+connection_key = "top0"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_mab0t"]
+script = ExtResource("3_0qwno")
+color = "red"
+connection_key = "bottom0"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_cm76a"]
+script = ExtResource("3_0qwno")
+color = "yellow"
+connection_key = "top1"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_530qi"]
+script = ExtResource("2_00h1x")
+id = "top0"
+title = "top0"
+start_position = Vector2(450, 120)
+inputs = Array[ExtResource("3_0qwno")]([SubResource("Resource_xniyy")])
+outputs = Array[ExtResource("3_0qwno")]([SubResource("Resource_mab0t"), SubResource("Resource_cm76a")])
+metadata/_custom_type_script = "uid://c30pvob3wui1m"
+
+[sub_resource type="Resource" id="Resource_h86rc"]
+script = ExtResource("3_0qwno")
+color = "yellow"
+connection_key = "top1"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_fiwwe"]
+script = ExtResource("3_0qwno")
+connection_key = "end"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_74kwm"]
+script = ExtResource("2_00h1x")
+id = "Top1"
+title = "Top1"
+inputs = Array[ExtResource("3_0qwno")]([SubResource("Resource_h86rc")])
+outputs = Array[ExtResource("3_0qwno")]([SubResource("Resource_fiwwe")])
+metadata/_custom_type_script = "uid://c30pvob3wui1m"
+
+[sub_resource type="Resource" id="Resource_0a6in"]
+script = ExtResource("3_0qwno")
+color = "red"
+connection_key = "bottom0"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_kr8uo"]
+script = ExtResource("3_0qwno")
+color = "red"
+connection_key = "bottom1"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_8wyun"]
+script = ExtResource("2_00h1x")
+id = "bottom0"
+title = "bottom0"
+inputs = Array[ExtResource("3_0qwno")]([SubResource("Resource_0a6in")])
+outputs = Array[ExtResource("3_0qwno")]([SubResource("Resource_kr8uo")])
+metadata/_custom_type_script = "uid://c30pvob3wui1m"
+
+[sub_resource type="Resource" id="Resource_00h1x"]
+script = ExtResource("3_0qwno")
+color = "red"
+connection_key = "bottom1"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_0qwno"]
+script = ExtResource("3_0qwno")
+color = "green"
+connection_key = "end"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_bu5d5"]
+script = ExtResource("2_00h1x")
+id = "bottom1"
+title = "Bottom1"
+inputs = Array[ExtResource("3_0qwno")]([SubResource("Resource_00h1x")])
+outputs = Array[ExtResource("3_0qwno")]([SubResource("Resource_0qwno")])
+metadata/_custom_type_script = "uid://c30pvob3wui1m"
+
+[sub_resource type="Resource" id="Resource_jiosk"]
+script = ExtResource("3_0qwno")
+connection_key = "end"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_uimfo"]
+script = ExtResource("3_0qwno")
+color = "green"
+connection_key = "end"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_kcr7n"]
+script = ExtResource("2_00h1x")
+id = "end"
+title = "End"
+start_position = Vector2(800, 300)
+inputs = Array[ExtResource("3_0qwno")]([SubResource("Resource_jiosk"), SubResource("Resource_uimfo")])
+metadata/_custom_type_script = "uid://c30pvob3wui1m"
+
+[sub_resource type="Resource" id="Resource_oja2d"]
+script = ExtResource("4_gvlbj")
+nodes = Array[ExtResource("2_00h1x")]([SubResource("Resource_e6hb8"), SubResource("Resource_530qi"), SubResource("Resource_74kwm"), SubResource("Resource_8wyun"), SubResource("Resource_bu5d5"), SubResource("Resource_kcr7n")])
+metadata/_custom_type_script = "uid://bknkelw6pi8cp"
+
+[resource]
+script = ExtResource("1_bu5d5")
+id = "programming3"
+display_name = "Fix Code"
+assigned_member_id = "riener"
+role_name = "Programming"
+progress = 100.0
+task_data = SubResource("Resource_oja2d")
+metadata/_custom_type_script = "uid://cg8xfoam2u1kk"

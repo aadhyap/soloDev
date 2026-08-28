@@ -46,6 +46,17 @@ theme_override_font_sizes/font_size = 30
 text = "FIX DRIPPZY'S ART"
 horizontal_alignment = 1
 
+[node name="TitleLabel2" type="Label" parent="." unique_id=870894611]
+layout_mode = 0
+offset_top = 60.0
+offset_right = 1160.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0.3872765, 0.32583994, 0.5146742, 1)
+theme_override_fonts/font = ExtResource("2_sb58u")
+theme_override_font_sizes/font_size = 25
+text = "FIX DRIPPZY'S ART"
+horizontal_alignment = 1
+
 [node name="GridContainer" type="GridContainer" parent="." unique_id=610806553]
 layout_mode = 0
 offset_left = 250.0

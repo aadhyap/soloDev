@@ -13,6 +13,7 @@ extends Control
 	$BrushPanel/VBoxContainer/BrushContainer/Brush5Button
 
 @onready var cursor_color: Panel = $CursorColor
+@onready var title_label = $TitleLabel2
 
 
 var palette: Array[Color] = []
@@ -46,6 +47,7 @@ func _ready():
 		return
 
 	image = data.sprite.get_image()
+	title_label.text = data.level_name
 
 	var unique_colors: Array[Color] = []
 
@@ -293,10 +295,6 @@ func try_paint_cell(cell: Button) -> void:
 
 
 func get_cell_size() -> float:
-	if GameState.current_task != null:
-		if GameState.current_task.id == "enemy":
-			return 12.0
-
 	return 24.0
 
 

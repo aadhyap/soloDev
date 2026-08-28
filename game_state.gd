@@ -11,9 +11,14 @@ var tasks: Array[GameTask] = [
 
 	preload("res://gameTasks/drawing1.tres"),
 	preload("res://gameTasks/drawing2.tres"),
+	preload("res://gameTasks/drawing3.tres"),
 	preload("res://gameTasks/writing1.tres"),
 	preload("res://gameTasks/writing2.tres"),
-	preload("res://gameTasks/programming1.tres")
+	preload("res://gameTasks/writing3.tres"),
+	preload("res://gameTasks/writing4.tres"),
+	preload("res://gameTasks/programming1.tres"),
+	preload("res://gameTasks/programming2.tres"),
+	preload("res://gameTasks/programmingA.tres")
 ]
 
 var current_task: GameTask = null
@@ -46,6 +51,25 @@ func get_remaining_task_count() -> int:
 			count += 1
 
 	return count
+
+func get_member_progress(member_id: String) -> float:
+	var total_tasks := 0
+	var completed_tasks := 0
+
+	for task in tasks:
+		if task.assigned_member_id == member_id:
+			total_tasks += 1
+
+			if task.complete:
+				completed_tasks += 1
+
+	if total_tasks == 0:
+		return 0.0
+
+	return (
+		float(completed_tasks)
+		/ float(total_tasks)
+	) * 100.0
 
 
 func can_help_member(member_id: String) -> bool:

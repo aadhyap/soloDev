@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="GameTask" format=3 uid="uid://cnq1ehq3siy0y"]
+
+[ext_resource type="Script" uid="uid://cg8xfoam2u1kk" path="res://game_task.gd" id="1_5rjij"]
+[ext_resource type="Script" uid="uid://c6gqos06xg4bp" path="res://minigames/art/art_task_data.gd" id="2_14xdc"]
+[ext_resource type="Texture2D" uid="uid://ff4dtge8hb52" path="res://assets/pics/enemy.png" id="3_4pbv5"]
+
+[sub_resource type="Resource" id="Resource_jdync"]
+script = ExtResource("2_14xdc")
+sprite = ExtResource("3_4pbv5")
+level_name = "Enemy"
+metadata/_custom_type_script = "uid://c6gqos06xg4bp"
+
+[resource]
+script = ExtResource("1_5rjij")
+id = "enemy"
+display_name = "Enemy"
+assigned_member_id = "drippzy"
+role_name = "Art"
+progress = 100.0
+task_data = SubResource("Resource_jdync")
+metadata/_custom_type_script = "uid://cg8xfoam2u1kk"

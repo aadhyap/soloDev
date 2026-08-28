@@ -1,0 +1,128 @@
+[gd_resource type="Resource" script_class="GameTask" format=3 uid="uid://dn7hpp8k5yts7"]
+
+[ext_resource type="Script" uid="uid://cg8xfoam2u1kk" path="res://game_task.gd" id="1_acr40"]
+[ext_resource type="Script" uid="uid://c30pvob3wui1m" path="res://minigames/programming_mini_game/programming_node_data.gd" id="2_n6s0d"]
+[ext_resource type="Script" uid="uid://dgt6jrijjiycu" path="res://minigames/programming_mini_game/programming_port_data.gd" id="3_cgf2a"]
+[ext_resource type="Script" uid="uid://bknkelw6pi8cp" path="res://minigames/programming_mini_game/programming_task_data.gd" id="4_amws4"]
+
+[sub_resource type="Resource" id="Resource_laj7n"]
+script = ExtResource("3_cgf2a")
+connection_key = "run_to_middle"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_e6hb8"]
+script = ExtResource("2_n6s0d")
+id = "run"
+title = "RUN"
+start_position = Vector2(100, 250)
+outputs = Array[ExtResource("3_cgf2a")]([SubResource("Resource_laj7n")])
+metadata/_custom_type_script = "uid://c30pvob3wui1m"
+
+[sub_resource type="Resource" id="Resource_xniyy"]
+script = ExtResource("3_cgf2a")
+connection_key = "run_to_middle"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_mab0t"]
+script = ExtResource("3_cgf2a")
+connection_key = "bottom"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_cm76a"]
+script = ExtResource("3_cgf2a")
+color = "yellow"
+connection_key = "top"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_y1ge4"]
+script = ExtResource("3_cgf2a")
+color = "red"
+connection_key = "top"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_530qi"]
+script = ExtResource("2_n6s0d")
+id = "middle"
+title = "Node A"
+start_position = Vector2(450, 120)
+inputs = Array[ExtResource("3_cgf2a")]([SubResource("Resource_xniyy")])
+outputs = Array[ExtResource("3_cgf2a")]([SubResource("Resource_mab0t"), SubResource("Resource_cm76a"), SubResource("Resource_y1ge4")])
+metadata/_custom_type_script = "uid://c30pvob3wui1m"
+
+[sub_resource type="Resource" id="Resource_h86rc"]
+script = ExtResource("3_cgf2a")
+color = "yellow"
+connection_key = "top"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_n2w1n"]
+script = ExtResource("3_cgf2a")
+color = "red"
+connection_key = "top"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_fiwwe"]
+script = ExtResource("3_cgf2a")
+connection_key = "end"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_74kwm"]
+script = ExtResource("2_n6s0d")
+id = "Top"
+title = "Top"
+inputs = Array[ExtResource("3_cgf2a")]([SubResource("Resource_h86rc"), SubResource("Resource_n2w1n")])
+outputs = Array[ExtResource("3_cgf2a")]([SubResource("Resource_fiwwe")])
+metadata/_custom_type_script = "uid://c30pvob3wui1m"
+
+[sub_resource type="Resource" id="Resource_0a6in"]
+script = ExtResource("3_cgf2a")
+connection_key = "bottom"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_kr8uo"]
+script = ExtResource("3_cgf2a")
+color = "green"
+connection_key = "end"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_8wyun"]
+script = ExtResource("2_n6s0d")
+id = "bottom"
+title = "bottom"
+inputs = Array[ExtResource("3_cgf2a")]([SubResource("Resource_0a6in")])
+outputs = Array[ExtResource("3_cgf2a")]([SubResource("Resource_kr8uo")])
+metadata/_custom_type_script = "uid://c30pvob3wui1m"
+
+[sub_resource type="Resource" id="Resource_jiosk"]
+script = ExtResource("3_cgf2a")
+connection_key = "end"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_uimfo"]
+script = ExtResource("3_cgf2a")
+color = "green"
+connection_key = "end"
+metadata/_custom_type_script = "uid://dgt6jrijjiycu"
+
+[sub_resource type="Resource" id="Resource_kcr7n"]
+script = ExtResource("2_n6s0d")
+id = "end"
+title = "End"
+start_position = Vector2(800, 300)
+inputs = Array[ExtResource("3_cgf2a")]([SubResource("Resource_jiosk"), SubResource("Resource_uimfo")])
+metadata/_custom_type_script = "uid://c30pvob3wui1m"
+
+[sub_resource type="Resource" id="Resource_oja2d"]
+script = ExtResource("4_amws4")
+nodes = Array[ExtResource("2_n6s0d")]([SubResource("Resource_e6hb8"), SubResource("Resource_530qi"), SubResource("Resource_74kwm"), SubResource("Resource_8wyun"), SubResource("Resource_kcr7n")])
+metadata/_custom_type_script = "uid://bknkelw6pi8cp"
+
+[resource]
+script = ExtResource("1_acr40")
+id = "programming2"
+display_name = "Fix Code"
+assigned_member_id = "riener"
+role_name = "Programming"
+progress = 66.0
+task_data = SubResource("Resource_oja2d")
+metadata/_custom_type_script = "uid://cg8xfoam2u1kk"

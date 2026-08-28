@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="GameTask" format=3 uid="uid://dwayl2mxq278g"]
+
+[ext_resource type="Script" uid="uid://cg8xfoam2u1kk" path="res://game_task.gd" id="1_d30jd"]
+[ext_resource type="Script" uid="uid://c2lhjfp50v5kx" path="res://minigames/writing/writing_task_data.gd" id="2_npwd8"]
+
+[sub_resource type="Resource" id="Resource_w3124"]
+script = ExtResource("2_npwd8")
+prompt = "Goop projectiles came at a cost. It would mess with PoopGoops’ DNA. Poopgoop would be able to disguise as different color goops for a longer period of time. Later being accepted by many Goop societies going by different names. The land of goop decided PoopGoop should be the next Ruler. Ruling the land of Goop. PoopGoop was the Goop avatar, or…the Goopatar. However…he later lost his Sh…I mean poop."
+Title = "Mission"
+metadata/_custom_type_script = "uid://c2lhjfp50v5kx"
+
+[resource]
+script = ExtResource("1_d30jd")
+id = "intro"
+display_name = "Intro"
+assigned_member_id = "rizza"
+role_name = "Writing"
+progress = 50.0
+task_data = SubResource("Resource_w3124")
+metadata/_custom_type_script = "uid://cg8xfoam2u1kk"

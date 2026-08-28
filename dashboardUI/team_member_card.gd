@@ -37,7 +37,7 @@ func refresh():
 		open_button.disabled = true
 		return
 
-	progress_bar.value = task.progress
+	progress_bar.value = GameState.get_member_progress(member.id)
 
 	if GameState.can_help_member(member.id):
 		open_button.text = "CHECK WORK"

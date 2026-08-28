@@ -4,6 +4,11 @@ extends Control
 
 var level_data: ProgrammingTaskData
 
+# Stores where every block originally spawned.
+# Restart sends the blocks back to these positions.
+var spawn_positions: Dictionary = {}
+
+
 const PORT_TYPES = {
 	"blue": {
 		"type": 0,
@@ -32,7 +37,9 @@ func _ready():
 	graph.connection_request.connect(_on_connection_request)
 	graph.disconnection_request.connect(_on_disconnection_request)
 
-	# Only same colors can connect.
+	graph.right_disconnects = true
+
+	# Only matching colors can connect.
 	for port_data in PORT_TYPES.values():
 		var type = port_data["type"]
 		graph.add_valid_connection_type(type, type)
@@ -50,22 +57,70 @@ func _ready():
 	create_level(level_data)
 
 
+# ---------------------------------------------------------
+# CREATE LEVEL
+# ---------------------------------------------------------
+
 func create_level(data: ProgrammingTaskData):
-	for node_data in data.nodes:
-		create_programming_node(node_data)
+	for i in range(data.nodes.size()):
+		var node_data: ProgrammingNodeData = data.nodes[i]
+
+		var spawn_position = get_cluster_position(i)
+
+		spawn_positions[node_data.id] = spawn_position
+
+		create_programming_node(
+			node_data,
+			spawn_position
+		)
 
 
-func create_programming_node(data: ProgrammingNodeData):
+# Makes the blocks spawn close together in rows.
+func get_cluster_position(index: int) -> Vector2:
+	var columns := 3
+
+	var column := index % columns
+	var row := index / columns
+
+	var start_position := Vector2(120, 100)
+
+	var horizontal_spacing := 210
+	var vertical_spacing := 150
+
+	return start_position + Vector2(
+		column * horizontal_spacing,
+		row * vertical_spacing
+	)
+
+
+func create_programming_node(
+	data: ProgrammingNodeData,
+	spawn_position: Vector2
+):
 	var node = GraphNode.new()
 
 	node.name = data.id
 	node.title = data.title
-	node.position_offset = data.start_position
 
-	# Save the level-data reference on the generated GraphNode.
+	node.position_offset = spawn_position
+
 	node.set_meta("node_data", data)
 
 	graph.add_child(node)
+
+	# START = GREEN
+	if data.id.to_lower() == "start":
+		set_node_header_color(
+			node,
+			Color("#35d05b")
+		)
+
+	# END = RED
+	elif data.id.to_lower() == "end":
+		set_node_header_color(
+			node,
+			Color("#e84c4c")
+		)
 
 	var row_count = max(
 		data.inputs.size(),
@@ -74,6 +129,7 @@ func create_programming_node(data: ProgrammingNodeData):
 
 	for i in range(row_count):
 		var row = Label.new()
+
 		row.text = " "
 		row.custom_minimum_size = Vector2(140, 35)
 
@@ -113,20 +169,73 @@ func create_programming_node(data: ProgrammingNodeData):
 		)
 
 
+# ---------------------------------------------------------
+# START / END COLORS
+# ---------------------------------------------------------
+
+func set_node_header_color(
+	node: GraphNode,
+	color: Color
+):
+	var style := StyleBoxFlat.new()
+
+	style.bg_color = color
+
+	style.corner_radius_top_left = 6
+	style.corner_radius_top_right = 6
+
+	node.add_theme_stylebox_override(
+		"titlebar",
+		style
+	)
+
+	node.add_theme_stylebox_override(
+		"titlebar_selected",
+		style
+	)
+
+
+# ---------------------------------------------------------
+# CONNECTIONS
+# ---------------------------------------------------------
+
 func _on_connection_request(
 	from_node: StringName,
 	from_port: int,
 	to_node: StringName,
 	to_port: int
 ):
-	if graph.is_node_connected(
-		from_node,
-		from_port,
-		to_node,
-		to_port
-	):
-		return
+	var connections = graph.get_connection_list()
 
+	# OUTPUT can only connect to ONE thing.
+	for connection in connections:
+		if (
+			connection["from_node"] == from_node
+			and int(connection["from_port"]) == from_port
+		):
+			graph.disconnect_node(
+				connection["from_node"],
+				connection["from_port"],
+				connection["to_node"],
+				connection["to_port"]
+			)
+
+	# INPUT can only receive ONE connection.
+	connections = graph.get_connection_list()
+
+	for connection in connections:
+		if (
+			connection["to_node"] == to_node
+			and int(connection["to_port"]) == to_port
+		):
+			graph.disconnect_node(
+				connection["from_node"],
+				connection["from_port"],
+				connection["to_node"],
+				connection["to_port"]
+			)
+
+	# Make the new connection.
 	graph.connect_node(
 		from_node,
 		from_port,
@@ -149,6 +258,42 @@ func _on_disconnection_request(
 	)
 
 
+# ---------------------------------------------------------
+# RESTART
+# ---------------------------------------------------------
+
+func _on_restart_button_pressed():
+	restart_level()
+
+
+func restart_level():
+	# Remove EVERY wire.
+	var connections = graph.get_connection_list()
+
+	for connection in connections:
+		graph.disconnect_node(
+			connection["from_node"],
+			connection["from_port"],
+			connection["to_node"],
+			connection["to_port"]
+		)
+
+	# Move every block back to where it originally spawned.
+	for child in graph.get_children():
+		if child is GraphNode:
+			var node := child as GraphNode
+			var node_id := String(node.name)
+
+			if spawn_positions.has(node_id):
+				node.position_offset = spawn_positions[node_id]
+
+	print("LEVEL RESTARTED")
+
+
+# ---------------------------------------------------------
+# TEST CODE
+# ---------------------------------------------------------
+
 func _on_test_button_pressed():
 	test_code()
 
@@ -156,10 +301,11 @@ func _on_test_button_pressed():
 func test_code():
 	var connections = graph.get_connection_list()
 
-	# First make sure EVERY required input is connected.
+	# Make sure every required input is connected.
 	for node_data in level_data.nodes:
 		for input_index in range(node_data.inputs.size()):
-			var input_data: ProgrammingPortData = node_data.inputs[input_index]
+			var input_data: ProgrammingPortData = \
+				node_data.inputs[input_index]
 
 			if input_data.connection_key == "":
 				continue
@@ -181,18 +327,34 @@ func test_code():
 					" / ",
 					input_data.connection_key
 				)
+
 				return
 
-	# Then verify every wire connects matching hidden keys.
+	# Check every connection.
 	for connection in connections:
-		var from_node_id = String(connection["from_node"])
-		var from_port = int(connection["from_port"])
+		var from_node_id = String(
+			connection["from_node"]
+		)
 
-		var to_node_id = String(connection["to_node"])
-		var to_port = int(connection["to_port"])
+		var from_port = int(
+			connection["from_port"]
+		)
 
-		var from_data = get_node_data(from_node_id)
-		var to_data = get_node_data(to_node_id)
+		var to_node_id = String(
+			connection["to_node"]
+		)
+
+		var to_port = int(
+			connection["to_port"]
+		)
+
+		var from_data = get_node_data(
+			from_node_id
+		)
+
+		var to_data = get_node_data(
+			to_node_id
+		)
 
 		if from_data == null or to_data == null:
 			print("CODE FAILED - UNKNOWN NODE")
@@ -206,22 +368,32 @@ func test_code():
 			print("CODE FAILED - INVALID INPUT")
 			return
 
-		var output_data: ProgrammingPortData = from_data.outputs[from_port]
-		var input_data: ProgrammingPortData = to_data.inputs[to_port]
+		var output_data: ProgrammingPortData = \
+			from_data.outputs[from_port]
 
-		if output_data.connection_key != input_data.connection_key:
+		var input_data: ProgrammingPortData = \
+			to_data.inputs[to_port]
+
+		if (
+			output_data.connection_key
+			!= input_data.connection_key
+		):
 			print(
 				"CODE FAILED: ",
 				output_data.connection_key,
 				" DOES NOT MATCH ",
 				input_data.connection_key
 			)
+
 			return
 
 	programming_complete()
 
 
-func get_node_data(node_id: String) -> ProgrammingNodeData:
+func get_node_data(
+	node_id: String
+) -> ProgrammingNodeData:
+
 	for node_data in level_data.nodes:
 		if node_data.id == node_id:
 			return node_data
@@ -229,9 +401,11 @@ func get_node_data(node_id: String) -> ProgrammingNodeData:
 	return null
 
 
-func programming_complete():
-	print("CODE WORKS!")
+# ---------------------------------------------------------
+# COMPLETE
+# ---------------------------------------------------------
 
+func programming_complete():
 	GameState.complete_current_task()
 	GameState.current_task = null
 
