@@ -3,7 +3,7 @@ extends Control
 @onready var story_label = $DocumentPanel/MarginContainer/VBoxContainer/WritingRow/StoryLabel
 @onready var progress_bar = $ProgressBar
 @onready var title_label = $DocumentPanel/MarginContainer/VBoxContainer/TitleLabel2
-
+@onready var type_sound: AudioStreamPlayer2D = $TypeSound
 
 var target_text := "The city was quiet until the lights went out."
 var typed_count := 0
@@ -49,6 +49,10 @@ func _ready():
 
 	update_story_display()
 
+func _process(_delta):
+	if type_sound.playing and type_sound.get_playback_position() >= 1.60:
+		type_sound.stop()
+
 
 func _input(event):
 	if not event is InputEventKey:
@@ -72,6 +76,8 @@ func _input(event):
 	if pressed_character != expected_character:
 		return
 
+	type_sound.stop()
+	type_sound.play(1.21)
 	typed_count += 1
 
 	update_story_display()

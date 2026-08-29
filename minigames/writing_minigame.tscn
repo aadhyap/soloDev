@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://1m66htvxa4i0" path="res://dashboardUI/DialogueSystem/dialogue_box.tscn" id="2_pkvbn"]
 [ext_resource type="Texture2D" uid="uid://cqdy137alanut" path="res://assets/pics/THE.png" id="2_psjuc"]
 [ext_resource type="FontFile" uid="uid://dhdehw4c3i2ux" path="res://fonts/hey_comic/Hey Comic.otf" id="3_iwpsi"]
+[ext_resource type="AudioStream" uid="uid://dowx43f1488hs" path="res://audio/sfx/typewrite.wav" id="5_6c0x0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkvbn"]
 bg_color = Color(1, 1, 1, 1)
@@ -131,5 +132,9 @@ offset_right = 901.0
 offset_bottom = 650.0
 
 [node name="DialogueUI" parent="." unique_id=38181865 instance=ExtResource("2_pkvbn")]
+
+[node name="TypeSound" type="AudioStreamPlayer2D" parent="." unique_id=1699965174]
+stream = ExtResource("5_6c0x0")
+volume_db = 2.18
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

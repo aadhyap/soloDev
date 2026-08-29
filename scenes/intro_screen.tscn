@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b7takqqyo45po"]
 
 [ext_resource type="Script" uid="uid://bquty15767dji" path="res://scenes/intro_screen.gd" id="1_m3gk3"]
-[ext_resource type="VideoStream" uid="uid://dw607kpnou6a2" path="res://assets/video/subintro.ogv" id="2_m3gk3"]
+[ext_resource type="VideoStream" uid="uid://c6ay3eaiikb88" path="res://assets/video/japintro.ogv" id="2_m3gk3"]
 
 [node name="IntroScreen" type="Control" unique_id=1307353441]
 layout_mode = 3

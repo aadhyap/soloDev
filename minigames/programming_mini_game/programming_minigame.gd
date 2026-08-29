@@ -420,7 +420,7 @@ func get_node_data(
 
 func programming_complete():
 	GameState.complete_current_task()
-	GameState.current_task = null
+	
 
 	var member_id = (
 		GameState.current_task.assigned_member_id

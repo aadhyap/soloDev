@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://mbb87p64j1ci"]
 
+[ext_resource type="VideoStream" uid="uid://b6lhf5mw1ht5g" path="res://assets/video/japending.ogv" id="1_61pod"]
+
 [node name="EndinScreen_tscn" type="Control" unique_id=1526294018]
 layout_mode = 3
 anchors_preset = 15
@@ -8,17 +10,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ResultLabel" type="Label" parent="." unique_id=879620544]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=497177419]
 layout_mode = 0
 offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="MessageLabel" type="Label" parent="." unique_id=1890817725]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="TryAgainButton" type="Button" parent="." unique_id=896950518]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_bottom = 40.0
+scale = Vector2(1.6123397, 1.2986453)
+stream = ExtResource("1_61pod")
+autoplay = true
