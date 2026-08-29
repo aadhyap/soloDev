@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cq4fvb3ii65ub" path="res://minigames/programming_mini_game/programming_minigame.gd" id="1_edgdy"]
 [ext_resource type="FontFile" uid="uid://dhdehw4c3i2ux" path="res://fonts/hey_comic/Hey Comic.otf" id="2_fptci"]
+[ext_resource type="PackedScene" uid="uid://1m66htvxa4i0" path="res://dashboardUI/DialogueSystem/dialogue_box.tscn" id="3_fwfex"]
 
 [node name="ProgrammingMinigame" type="Control" unique_id=839861054]
 layout_mode = 3
@@ -65,6 +66,8 @@ offset_right = 680.0
 offset_bottom = 620.0
 scale = Vector2(1, 1.0042739)
 text = "RESTART"
+
+[node name="DialogueUI" parent="." unique_id=38181865 instance=ExtResource("3_fwfex")]
 
 [connection signal="pressed" from="TestButton" to="." method="_on_test_button_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

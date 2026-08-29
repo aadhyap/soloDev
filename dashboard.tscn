@@ -2,15 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://1m66htvxa4i0" path="res://dashboardUI/DialogueSystem/dialogue_box.tscn" id="1_1w0xl"]
 [ext_resource type="PackedScene" uid="uid://b6t2cs0kx4b0v" path="res://dashboardUI/team_member_card.tscn" id="1_23vhs"]
+[ext_resource type="Script" uid="uid://sgh7d3ms1th3" path="res://dashboard.gd" id="1_bw4wq"]
 [ext_resource type="Resource" uid="uid://cay6hmvpcvb8s" path="res://membersData/drippzy.tres" id="3_bc6a6"]
 [ext_resource type="Resource" uid="uid://o0we86nc1eil" path="res://membersData/rimbo.tres" id="4_1w0xl"]
-[ext_resource type="Resource" uid="uid://cpyabxrjjyt0e" path="res://membersData/riener.tres" id="4_bw4wq"]
+[ext_resource type="Resource" uid="uid://cpyabxrjjyt0e" path="res://membersData/rain.tres" id="4_bw4wq"]
 [ext_resource type="Resource" uid="uid://cfgxwnqiplcf3" path="res://membersData/rizza.tres" id="5_bw4wq"]
 
 [node name="Dashboard" type="Control" unique_id=2072022460]
 custom_maximum_size = Vector2(0, 0)
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_bw4wq")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1908927778]
 layout_mode = 0
@@ -49,7 +51,7 @@ layout_mode = 2
 size_flags_vertical = 3
 member = ExtResource("5_bw4wq")
 
-[node name="riener" parent="CenterContainer/VBoxContainer" unique_id=291573546 instance=ExtResource("1_23vhs")]
+[node name="rain" parent="CenterContainer/VBoxContainer" unique_id=291573546 instance=ExtResource("1_23vhs")]
 layout_mode = 2
 size_flags_vertical = 3
 member = ExtResource("4_bw4wq")

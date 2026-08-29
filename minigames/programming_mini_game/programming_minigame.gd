@@ -53,6 +53,19 @@ func _ready():
 	if level_data == null:
 		print("NO PROGRAMMING TASK DATA")
 		return
+	if GameState.pending_dialogue != "":
+		print("GET HERE")
+		var dialogue_box = get_tree().get_first_node_in_group(
+			"dialogue_box"
+		)
+
+		if dialogue_box:
+			var dialogue_id = GameState.pending_dialogue
+			print("TRYING FIRST CHECK DIALOGUE: ", dialogue_id)
+			GameState.pending_dialogue = ""
+			GameState.mark_dialogue_seen(dialogue_id)
+
+			dialogue_box.start(dialogue_id)
 
 	create_level(level_data)
 
@@ -409,6 +422,23 @@ func programming_complete():
 	GameState.complete_current_task()
 	GameState.current_task = null
 
+	var member_id = (
+		GameState.current_task.assigned_member_id
+	)
+	var dialogue_box = get_tree().get_first_node_in_group(
+		"dialogue_box"
+	)
+	if dialogue_box != null:
+		var dialogue_id = member_id + "_kickout"
+		print("HI RAIN")
+		print(dialogue_id)
+		dialogue_box.start(dialogue_id)
+
+		await dialogue_box.finished
+
+	GameState.current_task = null
+
+	
 	get_tree().change_scene_to_file(
 		"res://dashboard.tscn"
 	)

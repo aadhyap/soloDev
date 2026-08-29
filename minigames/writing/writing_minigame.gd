@@ -117,11 +117,26 @@ func update_progress():
 
 func writing_complete():
 	GameState.complete_current_task()
+	
+	var member_id = (
+		GameState.current_task.assigned_member_id
+	)
+	var dialogue_box = get_tree().get_first_node_in_group(
+		"dialogue_box"
+	)
+	if dialogue_box != null:
+		var dialogue_id = member_id + "_kickout"
+
+		dialogue_box.start(dialogue_id)
+
+		await dialogue_box.finished
+
 	GameState.current_task = null
 
 	get_tree().change_scene_to_file(
 		"res://dashboard.tscn"
 	)
+
 
 
 func _on_back_button_pressed():

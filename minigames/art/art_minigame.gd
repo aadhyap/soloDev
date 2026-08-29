@@ -81,7 +81,7 @@ func _ready():
 
 		if dialogue_box:
 			var dialogue_id = GameState.pending_dialogue
-
+			
 			GameState.pending_dialogue = ""
 			GameState.mark_dialogue_seen(dialogue_id)
 

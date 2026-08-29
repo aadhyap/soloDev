@@ -1,4 +1,16 @@
 {
+	
+	"dashboard_intro": [
+		
+		{
+		"speaker": "Rain",
+		"text": "I'm almost done with my code dont worry!"
+	},
+	{
+		"speaker": "Ila",
+		"text": "Alright... let's see what everyone actually got done."
+	}
+],
   "rizza_first_check": [
 	{
 	  "speaker": "Ila",
@@ -13,60 +25,55 @@
   "drippzy_first_check": [
 	{
 	  "speaker": "Ila",
-	  "text": "Is that supposed to be the player?"
+	  "text": "Do you need help?"
 	},
 	{
 	  "speaker": "Drippzy",
-	  "text": "Yeah."
+	  "text": "Im just sketching some drafts in my head first"
 	}
   ],
   "drippzy_kickout": [
 	{
 	  "speaker": "Drippzy",
-	  "text": "aight stop doing all the work bro"
+	  "text": "hey bro stop touching my are"
 	},
 	{
 	  "speaker": "Ila",
-	  "text": "we literally have a deadline"
+	  "text": "you had nothing done"
 	},
 	{
 	  "speaker": "Drippzy",
-	  "text": "yeah and I'm literally working on it now"
+	  "text": "don't rush an Artist!"
 	}
   ],
 
-  "risa_kickout": [
-	{
-	  "speaker": "Rizza",
-	  "text": "Okay okay, let me actually write something."
+  "rain_first_check": [
+		
+		{
+		"speaker": "Rain",
+		"text": "Blueprint kinda gives me nightmares"
 	},
 	{
-	  "speaker": "Ila",
-	  "text": "You wrote one word."
-	},
-	{
-	  "speaker": "Rizza",
-	  "text": "And now I'm writing a second one."
+		"speaker": "Ila",
+		"text": "'sighs' let me fix this"
 	}
-  ],
+],
+"rain_kickout": [
+		
+		{
+		"speaker": "Rain",
+		"text": "I think I can take it from here"
+	},
+	
 
-  "risa_first_check": [
+	
+],
+"rimbo_leave_me_alone": [
 	{
-	  "speaker": "Ila",
-	  "text": "bruh what am I looking at"
-	},
-	{
-	  "speaker": "Rizza",
-	  "text": "Uhh so this is all I got for the story."
-	},
-	{
-	  "speaker": "Ila",
-	  "text": "You wrote 'The.'"
-	},
-	{
-	  "speaker": "Rizza",
-	  "text": "I was getting there."
+		"speaker": "Rimbo",
+		"text": "Leave me alone. I'm working."
 	}
-  ]
+]
+
 
 }
